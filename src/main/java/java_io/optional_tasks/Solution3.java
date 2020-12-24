@@ -6,9 +6,9 @@ public class Solution3 {
     public static void main(String[] args) {
 
         try (BufferedInputStream reader = new BufferedInputStream(new FileInputStream("testFiles"
-                + File.separator + "Solution3Files" + File.separator + "inputFile.java "));
+                + File.separator + "Solution3Files" + File.separator + "inputFile.java"));
              BufferedOutputStream writer = new BufferedOutputStream(new FileOutputStream("testFiles"
-                     + File.separator + "Solution3Files" + File.separator + "outputFile.java ", true))) {
+                     + File.separator + "Solution3Files" + File.separator + "outputFile.java"))) {
 
             byte[] buffer = new byte[reader.available()];
 
