@@ -12,7 +12,8 @@ public class Solution1 {
     public static void main(String[] args) {
         List<Integer> randomList = new ArrayList<>();
         Random random = new Random();
-        String fileName = "output.txt";
+        String fileName =
+                "testFiles" + File.separator + "Solution1Files" + File.separator + "output.txt";
 
         for (int i = 0; i < 100; i++) {
             randomList.add(random.nextInt(100));
