@@ -54,8 +54,8 @@ public class UniversityGradeHandler {
                 counter++;
             }
         }
-        System.out.println("Average grade for all courses for " + student.getStudentName() + ": "
-                + gradeSum / counter + ";");
+        System.out.printf("Average grade for all courses for %s: %.2f;\n", student.getStudentName()
+                , (double) gradeSum / (double) counter);
     }
 
     public void countAverageGradeForCertainCourseGroupFaculty(FacultyCourses course, Group group) {
@@ -73,8 +73,9 @@ public class UniversityGradeHandler {
                 }
             }
         }
-        System.out.println("Average grade for " + course.toString() + " in " + group.getGroupName()
-                + " of " + group.getFacultyName() + ": " + gradeSum / counter + ";");
+        System.out.printf("Average grade for %s in %s of %s: %.2f;\n",
+                course.toString(), group.getGroupName(), group.getFacultyName(),
+               (double) gradeSum / (double) counter);
     }
 
     public void countAverageGradeForUniversity(University university) {
@@ -93,6 +94,7 @@ public class UniversityGradeHandler {
                 }
             }
         }
-        System.out.println("Average grade for University: " + gradeSum / counter + ";");
+        System.out.printf("Average grade for University: %.2f;\n",
+               (double) gradeSum / (double) counter);
     }
 }
