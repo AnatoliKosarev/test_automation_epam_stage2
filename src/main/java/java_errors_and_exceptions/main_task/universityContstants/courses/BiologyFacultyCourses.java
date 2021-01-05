@@ -29,7 +29,7 @@ public enum BiologyFacultyCourses implements FacultyCourses {
 
     private static Map<String, List<Integer>> getMicrobiologyGradeList() {
         return Map.of(
-                "John Lennon", new ArrayList<>(Arrays.asList(8, 9, 5)),
+                "John Lennon", new ArrayList<>(Arrays.asList(9, 9, 5)),
                 "Paul McCartney", new ArrayList<>(Arrays.asList(5, 6, 7, 4)),
                 "George Harrison", new ArrayList<>(Arrays.asList(7, 8, 4)),
                 "Ringo Starr", new ArrayList<>(Arrays.asList(6, 4, 4, 5)));
@@ -37,7 +37,7 @@ public enum BiologyFacultyCourses implements FacultyCourses {
 
     private static Map<String, List<Integer>> getBiochemistryGradeList() {
         return Map.of(
-                "John Lennon", new ArrayList<>(Arrays.asList(4, 6, 10, 3)),
+                "John Lennon", new ArrayList<>(Arrays.asList(10, 6, 10, 3)),
                 "Paul McCartney", new ArrayList<>(Arrays.asList(9, 7)),
                 "George Harrison", new ArrayList<>(Arrays.asList(5, 7, 4)),
                 "Ringo Starr", new ArrayList<>(Arrays.asList(5, 8)));

@@ -4,12 +4,18 @@ import java_errors_and_exceptions.main_task.exceptions.NoFacultiesInUniversityEx
 import java_errors_and_exceptions.main_task.exceptions.NoGroupsForFacultyException;
 import java_errors_and_exceptions.main_task.exceptions.NoStudentsInGroupException;
 import java_errors_and_exceptions.main_task.exceptions.Validator;
+import java_errors_and_exceptions.main_task.universityContstants.Faculties;
 import java_errors_and_exceptions.main_task.universityContstants.courses.FacultyCourses;
+import java_errors_and_exceptions.main_task.universityContstants.groups.BiologyFacultyGroups;
+import java_errors_and_exceptions.main_task.universityContstants.groups.EconomicsFacultyGroups;
+import java_errors_and_exceptions.main_task.universityContstants.groups.Groups;
 import java_errors_and_exceptions.main_task.universityEntity.Faculty;
 import java_errors_and_exceptions.main_task.universityEntity.Group;
 import java_errors_and_exceptions.main_task.universityEntity.Student;
 import java_errors_and_exceptions.main_task.universityEntity.University;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -59,7 +65,21 @@ public class UniversityGradeHandler {
     }
 
     public void countAverageGradeForCertainCourseGroupFaculty(FacultyCourses course, Group group) {
-        validator.validateCourseAndGroupCorrespondence(course, group);
+        String groupFacultyName = null;
+        List<Groups> groupList = new ArrayList<>();
+        groupList.addAll(Arrays.asList(BiologyFacultyGroups.values()));
+        groupList.addAll(Arrays.asList(EconomicsFacultyGroups.values()));
+
+        for (Groups facultyGroup : groupList) {
+            if (facultyGroup.toString().equals(group.getGroupName())) {
+                groupFacultyName = facultyGroup.getFacultyName().toString();
+            }
+        }
+
+        if (groupFacultyName != null) {
+            validator.validateCourseAndGroupCorrespondence(course, group, groupFacultyName);
+        }
+
         int counter = 0;
         int gradeSum = 0;
         for (Student student : group.getStudentList()) {
@@ -74,11 +94,11 @@ public class UniversityGradeHandler {
             }
         }
         System.out.printf("Average grade for %s in %s of %s: %.2f;\n",
-                course.toString(), group.getGroupName(), group.getFacultyName(),
-               (double) gradeSum / (double) counter);
+                course.toString(), group.getGroupName(), groupFacultyName,
+                (double) gradeSum / (double) counter);
     }
 
-    public void countAverageGradeForUniversity(University university) {
+    public void countAverageCourseGradeForUniversity(University university, FacultyCourses course) {
         int counter = 0;
         int gradeSum = 0;
         for (Faculty faculty : university.getFacultyList()) {
@@ -86,15 +106,17 @@ public class UniversityGradeHandler {
                 for (Student student : group.getStudentList()) {
                     for (Map.Entry<FacultyCourses, List<Integer>> entry :
                             student.getStudentGrades().entrySet()) {
-                        for (Integer grade : entry.getValue()) {
-                            gradeSum += grade;
-                            counter++;
+                        if (entry.getKey().equals(course)) {
+                            for (Integer grade : entry.getValue()) {
+                                gradeSum += grade;
+                                counter++;
+                            }
                         }
                     }
                 }
             }
         }
-        System.out.printf("Average grade for University: %.2f;\n",
-               (double) gradeSum / (double) counter);
+        System.out.printf("Average grade for University in %s: %.2f;\n", course.toString(),
+                (double) gradeSum / (double) counter);
     }
 }

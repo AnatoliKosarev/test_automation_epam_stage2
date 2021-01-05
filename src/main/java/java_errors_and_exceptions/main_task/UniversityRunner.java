@@ -12,9 +12,8 @@ import java.util.Arrays;
 import java.util.List;
 
 import static java_errors_and_exceptions.main_task.universityContstants.Faculties.*;
-import static java_errors_and_exceptions.main_task.universityContstants.courses.BiologyFacultyCourses.BIOCHEMISTRY;
-import static java_errors_and_exceptions.main_task.universityContstants.groups.BiologyFacultyGroups.FOB1;
-import static java_errors_and_exceptions.main_task.universityContstants.groups.BiologyFacultyGroups.FOB2;
+import static java_errors_and_exceptions.main_task.universityContstants.courses.EconomicsFacultyCourses.*;
+import static java_errors_and_exceptions.main_task.universityContstants.groups.BiologyFacultyGroups.*;
 import static java_errors_and_exceptions.main_task.universityContstants.groups.EconomicsFacultyGroups.*;
 
 public class UniversityRunner {
@@ -27,34 +26,34 @@ public class UniversityRunner {
          * universityConstants.courses.EconomicsFacultyCourses) to invalid (grade < 0 || grade > 10)
          */
 
-        Student fob1Student1 = new Student("John Lennon", FACULTY_OF_BIOLOGY.toString());
-        Student fob1Student2 = new Student("Paul McCartney", FACULTY_OF_BIOLOGY.toString());
+        Student fob1Student1 = new Student("John Lennon");
+        Student fob1Student2 = new Student("Paul McCartney");
         List<Student> fob1GroupStudentList = Arrays.asList(fob1Student1, fob1Student2);
 
-        Student fob2Student1 = new Student("George Harrison", FACULTY_OF_BIOLOGY.toString());
-        Student fob2Student2 = new Student("Ringo Starr", FACULTY_OF_BIOLOGY.toString());
+        Student fob2Student1 = new Student("George Harrison");
+        Student fob2Student2 = new Student("Ringo Starr");
 
         /**
          * To test StudentEmptyCourseListException uncomment lines 40-41 and comment line 42
          */
-//        Student fob2Student3 = new Student("Sid Vicious", FACULTY_OF_BIOLOGY.toString());
+//        Student fob2Student3 = new Student("Sid Vicious");
 //        List<Student> fob2GroupStudentList = Arrays.asList(fob2Student1, fob2Student2, fob2Student3);
         List<Student> fob2GroupStudentList = Arrays.asList(fob2Student1, fob2Student2);
 
-        Student foe1Student1 = new Student("James Hetfield", FACULTY_OF_ECONOMICS.toString());
-        Student foe1Student2 = new Student("Kirk Hammett", FACULTY_OF_ECONOMICS.toString());
+        Student foe1Student1 = new Student("James Hetfield");
+        Student foe1Student2 = new Student("Kirk Hammett");
         List<Student> foe1GroupStudentList = Arrays.asList(foe1Student1, foe1Student2);
 
-        Student foe2Student1 = new Student("Cliff Burton", FACULTY_OF_ECONOMICS.toString());
-        Student foe2Student2 = new Student("Lars Ulrich", FACULTY_OF_ECONOMICS.toString());
+        Student foe2Student1 = new Student("Cliff Burton");
+        Student foe2Student2 = new Student("Lars Ulrich");
         List<Student> foe2GroupStudentList = Arrays.asList(foe2Student1, foe2Student2);
 
-        Group fob1Group = new Group(FOB1.toString(), FACULTY_OF_BIOLOGY, fob1GroupStudentList);
-        Group fob2Group = new Group(FOB2.toString(), FACULTY_OF_BIOLOGY, fob2GroupStudentList);
+        Group fob1Group = new Group(FOB1.toString(), fob1GroupStudentList);
+        Group fob2Group = new Group(FOB2.toString(), fob2GroupStudentList);
         List<Group> biologyFacultyGroupList = Arrays.asList(fob1Group, fob2Group);
 
-        Group foe1Group = new Group(FOE1.toString(), FACULTY_OF_ECONOMICS, foe1GroupStudentList);
-        Group foe2Group = new Group(FOE2.toString(), FACULTY_OF_ECONOMICS, foe2GroupStudentList);
+        Group foe1Group = new Group(FOE1.toString(), foe1GroupStudentList);
+        Group foe2Group = new Group(FOE2.toString(), foe2GroupStudentList);
 
         /**
          * To test NoStudentsInGroupException uncomment line 62-63 and comment line 64
@@ -87,9 +86,10 @@ public class UniversityRunner {
 
         universityGradeHandler.countAverageGradeForStudent(fob1Student1);
 
-        universityGradeHandler.countAverageGradeForCertainCourseGroupFaculty(BIOCHEMISTRY,
-                fob2Group);
+        universityGradeHandler.countAverageGradeForCertainCourseGroupFaculty(ECONOMICS,
+                foe2Group);
 
-        universityGradeHandler.countAverageGradeForUniversity(university);
+        universityGradeHandler.countAverageCourseGradeForUniversity(university,
+                BUSINESS_INFORMATICS);
     }
 }

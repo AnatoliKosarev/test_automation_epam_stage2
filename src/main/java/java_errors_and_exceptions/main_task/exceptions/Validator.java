@@ -16,7 +16,8 @@ public class Validator {
                 student.getStudentGrades().entrySet()) {
             for (Integer grade : entry.getValue()) {
                 if (grade < 0 || grade > 10) {
-                    String errorMessage = "Incorrect grade: " + grade + " for " + "student "
+                    String errorMessage =
+                            "Incorrect grade: " + grade + " for " + "student "
                                     + student.getStudentName() + " for " + entry.getKey().toString();
                     errorMessage += grade < 0 ? ". Grade cannot be less than 0." : ". Grade " +
                             "cannot be greater than 10.";
@@ -34,14 +35,17 @@ public class Validator {
         }
     }
 
-    public void validateCourseAndGroupCorrespondence(FacultyCourses course, Group group) {
+    public void validateCourseAndGroupCorrespondence(FacultyCourses queryCourse, Group queryGroup
+            , String groupFacultyName) {
+
         for (Faculties faculty : Faculties.values()) {
-            if (faculty.equals(group.getFacultyName())) {
-                if (!Arrays.asList(faculty.getCourseList()).contains(course)) {
-                    throw new CourseAndGroupDoNotCorrespondException("Error: " + course.toString()
-                            + " and " + group.getGroupName() + " do not correspond. " + course
-                            + " is not found" + " " + "in " + group.getFacultyName().toString()
-                            + " " + group.getGroupName() + " course list.");
+            if (faculty.toString().equals(groupFacultyName)) {
+                if (!Arrays.asList(faculty.getCourseList()).contains(queryCourse)) {
+                    throw new CourseAndGroupDoNotCorrespondException("Error: "
+                            + queryCourse.toString() + " and " + queryGroup.getGroupName()
+                            + " do not correspond. " + queryCourse + " is not found" + " "
+                            + "in " + groupFacultyName + " " + queryGroup.getGroupName()
+                            + " course list.");
                 }
             }
         }

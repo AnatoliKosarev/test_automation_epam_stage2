@@ -1,14 +1,14 @@
-1. Eastwood 8 7 8 9 4
+1. EASTWOOD 8 7 8 9 4
 2. Escobedo 4 6 4 8 2 1
 3. Earl 4 5 6 8
-4. Elliott 7 7 7 8
+4. ELLIOTT 7 7 7 8
 5. Edmonds 8 9 7 2
 6. Evans 1 5 7
 7. Edwards 4 5 4 7
-8. Emery 7 8 7 7
-9. Enriquez 9 8 9 8 7
+8. EMERY 7 8 7 7
+9. ENRIQUEZ 9 8 9 8 7
 10. Eason 4 6 5 8
-11. Elmore 10 10 2 5 8 9
+11. ELMORE 10 10 2 5 8 9
 12. Estes 4 5 6
 13. England 7 7 8 6 7 7
 14. Eadie 5 6 8 9
