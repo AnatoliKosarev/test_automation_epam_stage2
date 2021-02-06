@@ -1,7 +1,7 @@
 package java_threads.main_task;
 
 public class ParkingLot {
-    private volatile static ParkingLot parkingLot;
+    private static ParkingLot parkingLot;
     public int availableParkingSpaceQuantity = 3;
 
     private ParkingLot() {}

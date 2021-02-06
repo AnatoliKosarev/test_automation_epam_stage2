@@ -11,10 +11,6 @@ public class Vehicle implements Runnable {
         this.id = name;
     }
 
-    public int getId() {
-        return id;
-    }
-
     @Override
     public void run() {
         System.out.println("Vehicle " + id + " enters parking lot");
