@@ -10,11 +10,6 @@ public class Airport {
             "Полоса 5"};
     private final Lock [] lockArray = {new ReentrantLock(true), new ReentrantLock(true),
             new ReentrantLock(true), new ReentrantLock(true), new ReentrantLock(true)};
-//    private final Lock lock1 = new ReentrantLock(true);
-//    private final Lock lock2 = new ReentrantLock(true);
-//    private final Lock lock3 = new ReentrantLock(true);
-//    private final Lock lock4 = new ReentrantLock(true);
-//    private final Lock lock5 = new ReentrantLock(true);
 
     private Airport() {}
 
@@ -24,26 +19,6 @@ public class Airport {
         }
         return airport;
     }
-
-//    public Lock getLock1() {
-//        return lock1;
-//    }
-//
-//    public Lock getLock2() {
-//        return lock2;
-//    }
-//
-//    public Lock getLock3() {
-//        return lock3;
-//    }
-//
-//    public Lock getLock4() {
-//        return lock4;
-//    }
-//
-//    public Lock getLock5() {
-//        return lock5;
-//    }
 
     public String getRunwayStripName(int id) {
         return runwayStripArray[id];
