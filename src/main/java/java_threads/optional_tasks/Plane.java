@@ -15,21 +15,14 @@ public class Plane implements Runnable {
     public void run() {
         System.out.println("Самолет " + id + " готов к взлету.");
         while (!isTakenOff) {
-            if (airport.getLock1().tryLock()) {
-                executeTakeoff(airport.getLock1(), airport.getRunwayStripName(0));
+            for (int i = 0; i < 5; i++) {
+                Lock lock = airport.getLockArray(i);
+                if (lock.tryLock()) {
+                    executeTakeoff(lock, airport.getRunwayStripName(i));
+                    return;
+                }
             }
-            else if (airport.getLock2().tryLock()) {
-                executeTakeoff(airport.getLock2(), airport.getRunwayStripName(1));
-            }
-            else if (airport.getLock3().tryLock()) {
-                executeTakeoff(airport.getLock3(), airport.getRunwayStripName(2));
-            }
-            else if (airport.getLock4().tryLock()) {
-                executeTakeoff(airport.getLock4(), airport.getRunwayStripName(3));
-            }
-            else if (airport.getLock5().tryLock()) {
-                executeTakeoff(airport.getLock5(), airport.getRunwayStripName(4));
-            } else {
+            if (!isTakenOff) {
                 waiting();
             }
         }
