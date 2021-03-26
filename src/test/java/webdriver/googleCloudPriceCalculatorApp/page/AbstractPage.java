@@ -4,8 +4,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import webdriver.waits.Waiter;
 
-import java.util.ArrayList;
-
 public abstract class AbstractPage {
     protected WebDriver driver;
     protected Waiter waiter;
