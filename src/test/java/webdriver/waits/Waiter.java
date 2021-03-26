@@ -6,10 +6,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import static webdriver.constants.Constants.TimeVariables.*;
+
+import java.time.Duration;
 
 public class Waiter {
     private final WebDriver driver;
-    public final int WAIT_TIMEOUT_5_SECONDS = 5;
     private final String debugMessage = "DEBUG: %s is not %s";
 
 
@@ -19,7 +21,15 @@ public class Waiter {
 
     public void waitUntilElementIsDisplayed(String elementLocator, String elementValueAndName) {
         try {
-            new WebDriverWait(driver, WAIT_TIMEOUT_5_SECONDS).until(ExpectedConditions.presenceOfElementLocated(By.xpath(elementLocator)));
+            new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_5_SECONDS)).until(ExpectedConditions.presenceOfElementLocated(By.xpath(elementLocator)));
+        } catch (TimeoutException e) {
+            System.out.printf((debugMessage) + "%n", elementValueAndName, "displayed on the page");
+        }
+    }
+
+    public void waitUntilElementIsDisplayed(WebElement element, String elementValueAndName) {
+        try {
+            new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_5_SECONDS)).until(ExpectedConditions.visibilityOf(element));
         } catch (TimeoutException e) {
             System.out.printf((debugMessage) + "%n", elementValueAndName, "displayed on page");
         }
@@ -27,7 +37,7 @@ public class Waiter {
 
     public void waitUntilElementIsClickable(WebElement element, String elementName) {
         try {
-            new WebDriverWait(driver, WAIT_TIMEOUT_5_SECONDS).until(ExpectedConditions.elementToBeClickable(element));
+            new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_5_SECONDS)).until(ExpectedConditions.elementToBeClickable(element));
         } catch (TimeoutException e) {
             System.out.printf((debugMessage) + "%n", elementName, "clickable");
         }
@@ -35,10 +45,15 @@ public class Waiter {
 
     public boolean cookieMessageIsDisplayed(WebElement element) {
         try {
-            new WebDriverWait(driver, WAIT_TIMEOUT_5_SECONDS).until(ExpectedConditions.elementToBeClickable(element));
+            new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_5_SECONDS)).until(ExpectedConditions.elementToBeClickable(element));
             return true;
         } catch (TimeoutException e) {
             return false;
         }
+    }
+
+    public WebDriver switchToFrame(WebElement frame) {
+        return new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_5_SECONDS)).until(ExpectedConditions
+                .frameToBeAvailableAndSwitchToIt(frame));
     }
 }

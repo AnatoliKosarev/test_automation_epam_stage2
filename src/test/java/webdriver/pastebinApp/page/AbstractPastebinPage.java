@@ -1,4 +1,4 @@
-package webdriver.page;
+package webdriver.pastebinApp.page;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -11,10 +11,6 @@ import java.util.Map;
 public abstract class AbstractPastebinPage {
     protected WebDriver driver;
     protected Map<String, String> pasteParamsList;
-    protected final String CODE_PARAM_NAME = "code";
-    protected final String EXP_DATE_PARAM_NAME = "expirationPeriod";
-    protected final String TITLE_PARAM_NAME = "title";
-    protected final String SYNTAX_TYPE_PARAM_NAME = "syntaxType";
     protected final Waiter waiter;
 
     @FindBy(xpath = "//button[@class = 'sc-ifAKCX ljEJIv' and contains(., 'AGREE')]")
@@ -31,5 +27,9 @@ public abstract class AbstractPastebinPage {
         this.waiter = new Waiter(driver);
         this.pasteParamsList = pasteParamsList;
         PageFactory.initElements(driver, this);
+    }
+
+    public String buildFinalLocator(String baseLocator, String dynamicLocatorPart) {
+        return String.format(baseLocator, dynamicLocatorPart);
     }
 }

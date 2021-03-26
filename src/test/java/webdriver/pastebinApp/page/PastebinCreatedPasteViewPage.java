@@ -1,4 +1,4 @@
-package webdriver.page;
+package webdriver.pastebinApp.page;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -6,7 +6,11 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import webdriver.waits.CustomConditions;
 
+import java.time.Duration;
 import java.util.Map;
+
+import static webdriver.constants.Constants.PasteBinParamNames.*;
+import static webdriver.constants.Constants.TimeVariables.*;
 
 public class PastebinCreatedPasteViewPage extends AbstractPastebinPage {
     private boolean pasteCreatedCorrectly = false;
@@ -31,7 +35,7 @@ public class PastebinCreatedPasteViewPage extends AbstractPastebinPage {
     }
 
     public boolean validateCorrectnessOfCreatedPaste() {
-        new WebDriverWait(driver, waiter.WAIT_TIMEOUT_5_SECONDS).until(CustomConditions.jQueryAJAXsCompleted());
+        new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_5_SECONDS)).until(CustomConditions.jQueryAJAXsCompleted());
         if (waiter.cookieMessageIsDisplayed(acceptCookieButton)) {
             acceptCookieButton.click();
         }

@@ -1,12 +1,16 @@
-package webdriver.page;
+package webdriver.pastebinApp.page;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import webdriver.waits.CustomConditions;
 
+import java.time.Duration;
 import java.util.HashMap;
 import java.util.Map;
+
+import static webdriver.constants.Constants.PasteBinParamNames.*;
+import static webdriver.constants.Constants.TimeVariables.*;
 
 public class PastebinHomePage extends AbstractPastebinPage {
     private static final String PASTEBIN_HOMEPAGE_URL = "https://pastebin.com";
@@ -56,7 +60,7 @@ public class PastebinHomePage extends AbstractPastebinPage {
 
     public PastebinHomePage openPage() {
         driver.get(PASTEBIN_HOMEPAGE_URL);
-        new WebDriverWait(driver, waiter.WAIT_TIMEOUT_5_SECONDS).until(CustomConditions.jQueryAJAXsCompleted());
+        new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_5_SECONDS)).until(CustomConditions.jQueryAJAXsCompleted());
         if (waiter.cookieMessageIsDisplayed(acceptCookieButton)) {
             acceptCookieButton.click();
         }
@@ -71,23 +75,17 @@ public class PastebinHomePage extends AbstractPastebinPage {
 
     public PastebinHomePage selectPasteExpirationValue(String expirationPeriodParamValue) {
         addPasteParamToPasteParamsList(EXP_DATE_PARAM_NAME, expirationPeriodParamValue);
-        pasteExpirationFilter.click();
-        String expirationOptionFinalLocator = String.format(expirationOptionLocator,
-                expirationPeriodParamValue);
-        waiter.waitUntilElementIsDisplayed(expirationOptionFinalLocator, "Entered expiration " +
-                "value '" + expirationPeriodParamValue + "'");
-        driver.findElement(By.xpath(expirationOptionFinalLocator)).click();
+        expandFilterPanel(pasteExpirationFilter, "'Paste expiration' filter");
+        selectOptionOnFilterPanel(buildFinalLocator(expirationOptionLocator, expirationPeriodParamValue),
+                "Entered expiration value '" + expirationPeriodParamValue + "'");
         return this;
     }
 
     public PastebinHomePage selectPasteSyntaxType(String syntaxTypeParamValue) {
         addPasteParamToPasteParamsList(SYNTAX_TYPE_PARAM_NAME, syntaxTypeParamValue);
-        pasteSyntaxTypeFilter.click();
-        String syntaxTypeOptionFinalLocator = String.format(syntaxTypeOptionLocator,
-                syntaxTypeParamValue);
-        waiter.waitUntilElementIsDisplayed(syntaxTypeOptionFinalLocator,
-                "Entered syntax type value '" + syntaxTypeParamValue + "'");
-        driver.findElement(By.xpath(syntaxTypeOptionFinalLocator)).click();
+        expandFilterPanel(pasteSyntaxTypeFilter, "'Paste syntax type' filter");
+        selectOptionOnFilterPanel(buildFinalLocator(syntaxTypeOptionLocator,
+                syntaxTypeParamValue), "Entered syntax type value '" + syntaxTypeParamValue + "'");
         return this;
     }
 
@@ -104,5 +102,15 @@ public class PastebinHomePage extends AbstractPastebinPage {
         jse.executeScript("arguments[0].scrollIntoView()", savePasteButton);
         savePasteButton.click();
         return new PastebinCreatedPasteViewPage(driver, pasteParamsList);
+    }
+
+    private void expandFilterPanel(WebElement filter, String filterName) {
+        waiter.waitUntilElementIsClickable(filter, filterName);
+        filter.click();
+    }
+
+    private void selectOptionOnFilterPanel(String optionLocator, String optionValueAndNAme) {
+        waiter.waitUntilElementIsDisplayed(optionLocator, optionValueAndNAme);
+        driver.findElement(By.xpath(optionLocator)).click();
     }
 }
