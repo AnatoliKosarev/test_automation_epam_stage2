@@ -66,6 +66,7 @@ public class PriceCalculatorComputeEngineEstimateResultPage extends AbstractPage
     }
 
     public boolean validateCorrectnessOfEstimateCalculation(String expectedCostValue) {
+        boolean result = true;
         waiter.waitUntilElementIsDisplayed(computeEngineEstimateLocator, "'Compute engine' " +
                 "estimate");
         computeEngineEstimateList = driver.findElements(By.xpath(computeEngineEstimateLocator));
@@ -77,33 +78,38 @@ public class PriceCalculatorComputeEngineEstimateResultPage extends AbstractPage
                     String paramValue = entry.getValue();
                     switch (paramName) {
                         case NUMBER_OF_INSTANCES:
-                            numberOfInstancesEstimateParamIsCorrect =
-                                    elementIsPresentOnEstimateBlock(estimateNumberOfInstancesBaseLocator, paramValue, "expected number of instances param");
+                            result =
+                                    result && elementIsPresentOnEstimateBlock(estimateNumberOfInstancesBaseLocator,
+                                            paramValue, "expected number of instances param");
                             break;
                         case VM_CLASS:
-                            vmClassEstimateParamIsCorrect =
-                                    elementIsPresentOnEstimateBlock(estimateComputedParamValueLocator, paramValue.toLowerCase(), "expected VM class param");
+                            result =
+                                    result && elementIsPresentOnEstimateBlock(estimateComputedParamValueLocator,
+                                            paramValue.toLowerCase(), "expected VM class param");
                             break;
                         case INSTANCE_TYPE:
-                            instanceTypeEstimateParamIsCorrect =
-                                    elementIsPresentOnEstimateBlock(estimateComputedParamValueLocator, formatValue(paramValue), "expected instance type param");
+                            result =
+                                    result && elementIsPresentOnEstimateBlock(estimateComputedParamValueLocator,
+                                    formatValue(paramValue), "expected instance type param");
                             break;
                         case DATACENTER_LOCATION:
-                            datacenterLocationEstimateParamIsCorrect =
-                                    elementIsPresentOnEstimateBlock(estimateComputedParamValueLocator, formatValue(paramValue), "expected datacenter location param");
+                            result =
+                                    result && elementIsPresentOnEstimateBlock(estimateComputedParamValueLocator,
+                                    formatValue(paramValue), "expected datacenter location param");
                             break;
                         case LOCAL_SSD:
-                            localSSDEstimateParamIsCorrect =
-                                    elementIsPresentOnEstimateBlock(estimateComputedParamValueLocator, formatValue(paramValue), "expected local SSD param");
+                            result =
+                                    result && elementIsPresentOnEstimateBlock(estimateComputedParamValueLocator,
+                                    formatValue(paramValue), "expected local SSD param");
                             break;
                         case COMMITTED_USAGE:
-                            committedUsageEstimateParamIsCorrect =
-                                    elementIsPresentOnEstimateBlock(estimateComputedParamValueLocator, paramValue, "expected committed usage param");
+                            result =
+                                    result && elementIsPresentOnEstimateBlock(estimateComputedParamValueLocator,
+                                    paramValue, "expected committed usage param");
                             break;
                     }
                 }
-                if (numberOfInstancesEstimateParamIsCorrect && vmClassEstimateParamIsCorrect && instanceTypeEstimateParamIsCorrect
-                        && datacenterLocationEstimateParamIsCorrect && localSSDEstimateParamIsCorrect && committedUsageEstimateParamIsCorrect) {
+                if (result) {
                     computeEngineEstimateIsCorrect = true;
                 }
             }
@@ -142,8 +148,8 @@ public class PriceCalculatorComputeEngineEstimateResultPage extends AbstractPage
     }
 
     public boolean validateEmailEstimateTotalCostIsTheSameAsOnEstimateResultPage() {
-        driver.switchTo().frame(frame1);
-        driver.switchTo().frame(frame2);
+        waiter.switchToFrame(frame1);
+        waiter.switchToFrame(frame2);
         waiter.waitUntilElementIsDisplayed(estimatePageTotalCostElement, "'Estimate page total cost' " +
                 "value");
         String estimatePageTotalCost = estimatePageTotalCostElement.getText().replaceFirst("Total" +

@@ -8,7 +8,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import webdriver.googleCloudPriceCalculatorApp.page.HomePage;
 
-import static webdriver.constants.Constants.URLs.*;
+import static webdriver.constants.Constants.GoogleCloudComputeEngineURLs.*;
 
 public class HardcoreTest {
     private WebDriver driver;

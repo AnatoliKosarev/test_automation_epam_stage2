@@ -21,6 +21,7 @@ public class Plane implements Runnable {
                     executeTakeoff(lock, airport.getRunwayStripName(i));
                     return;
                 }
+
             }
             if (!isTakenOff) {
                 waiting();

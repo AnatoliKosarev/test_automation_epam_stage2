@@ -17,9 +17,7 @@ public abstract class AbstractPastebinPage {
     protected WebElement acceptCookieButton;
 
     public AbstractPastebinPage(WebDriver driver) {
-        this.driver = driver;
-        this.waiter = new Waiter(driver);
-        PageFactory.initElements(driver, this);
+        this(driver, null);
     }
 
     public AbstractPastebinPage(WebDriver driver, Map<String, String> pasteParamsList) {

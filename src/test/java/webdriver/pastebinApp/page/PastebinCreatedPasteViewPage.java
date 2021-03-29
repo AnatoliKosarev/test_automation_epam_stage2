@@ -14,10 +14,6 @@ import static webdriver.constants.Constants.TimeVariables.*;
 
 public class PastebinCreatedPasteViewPage extends AbstractPastebinPage {
     private boolean pasteCreatedCorrectly = false;
-    private boolean savedPasteTitleIsCorrect = true;
-    private boolean savedPasteExpirationValueIsCorrect = true;
-    private boolean savedPasteSyntaxTypeIsCorrect = true;
-    private boolean savedPasteCodeValueIsCorrect = true;
     private final String savedPasteTitleValueLocator = "//div[@class = 'info-top' and contains(.,"
             + " '%s')]";
     private final String savedPasteExpirationValueLocator = "//div[@class = 'expire' and " +
@@ -39,29 +35,29 @@ public class PastebinCreatedPasteViewPage extends AbstractPastebinPage {
         if (waiter.cookieMessageIsDisplayed(acceptCookieButton)) {
             acceptCookieButton.click();
         }
+        boolean result = true;
         if (pasteCreatedSuccessfullyMessageIsPresentOnPasteViewPage(pasteCreatedSuccessfullyMessageLocator, "Success message")) {
             for (Map.Entry<String, String> entry : pasteParamsList.entrySet()) {
                 String paramName = entry.getKey();
                 String paramValue = entry.getValue();
                 if (paramName.equals(TITLE_PARAM_NAME) && paramValue != null) {
-                    savedPasteTitleIsCorrect =
-                            savedParamIsPresentOnPasteViewPage(savedPasteTitleValueLocator,
+                    result = result && savedParamIsPresentOnPasteViewPage(savedPasteTitleValueLocator,
                                     paramValue, "title");
                 } else if (paramName.equals(EXP_DATE_PARAM_NAME) && paramValue != null) {
                     String shortExpParamValue = paramValue.substring(0, 6).toLowerCase();
-                    savedPasteExpirationValueIsCorrect =
-                            savedParamIsPresentOnPasteViewPage(savedPasteExpirationValueLocator,
+                    result =
+                            result && savedParamIsPresentOnPasteViewPage(savedPasteExpirationValueLocator,
                                     shortExpParamValue, "expiration value");
                 } else if (paramName.equals(CODE_PARAM_NAME) && paramValue != null) {
-                    savedPasteCodeValueIsCorrect =
-                            savedParamIsPresentOnPasteViewPage(buildCodeValueFinalLocator(paramValue), paramValue, "code value");
+                    result =
+                            result && savedParamIsPresentOnPasteViewPage(buildCodeValueFinalLocator(paramValue), paramValue, "code value");
                 } else if (paramName.equals(SYNTAX_TYPE_PARAM_NAME) && paramValue != null) {
-                    savedPasteSyntaxTypeIsCorrect =
-                            savedParamIsPresentOnPasteViewPage(savedPasteSyntaxTypeValueLocator,
+                    result =
+                            result && savedParamIsPresentOnPasteViewPage(savedPasteSyntaxTypeValueLocator,
                                     paramValue, "syntax type");
                 }
             }
-            if (savedPasteExpirationValueIsCorrect && savedPasteTitleIsCorrect && savedPasteCodeValueIsCorrect && savedPasteSyntaxTypeIsCorrect) {
+            if (result) {
                 pasteCreatedCorrectly = true;
             }
         }

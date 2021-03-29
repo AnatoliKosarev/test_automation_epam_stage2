@@ -10,10 +10,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static webdriver.constants.Constants.PasteBinParamNames.*;
+import static webdriver.constants.Constants.PasteBinURLs.*;
 import static webdriver.constants.Constants.TimeVariables.*;
 
 public class PastebinHomePage extends AbstractPastebinPage {
-    private static final String PASTEBIN_HOMEPAGE_URL = "https://pastebin.com";
     private final String expirationOptionLocator = "//*[@id='select2-postform-expiration-results" +
             "']/li" + "[contains(., '%s')]";
     private final String syntaxTypeOptionLocator = "//*[@class= 'select2-results__options " +

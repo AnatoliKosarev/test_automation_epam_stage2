@@ -5,7 +5,11 @@ public class Constants {
         public static final int WAIT_TIMEOUT_5_SECONDS = 5;
     }
 
-    public static class URLs {
+    public static class PasteBinURLs {
+        public static final String PASTEBIN_HOMEPAGE_URL = "https://pastebin.com";
+    }
+
+    public static class GoogleCloudComputeEngineURLs {
         public static final String GOOGLE_CLOUD_HOME_URL = "https://cloud.google.com/";
         public static final String TEMP_MAIL_HOME_URL = "https://mail.tm/en/";
     }

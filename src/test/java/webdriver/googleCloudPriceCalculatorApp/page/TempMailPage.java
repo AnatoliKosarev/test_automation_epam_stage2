@@ -43,7 +43,7 @@ public class TempMailPage extends AbstractPage {
     public PriceCalculatorComputeEngineEstimateResultPage getEmailEstimateCost() {
         waiter.waitUntilElementIsDisplayed(mailMessageButton, "'Mail message' button");
         mailMessageButton.click();
-        new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_5_SECONDS)).until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(frame));
+        waiter.switchToFrame(frame);
         waiter.waitUntilElementIsDisplayed(totalCostElement, "'Estimate total cost' element");
         emailEstimateTotalCost = totalCostElement.getText().replaceFirst("Estimated Monthly Cost:" +
                 " ", "");
