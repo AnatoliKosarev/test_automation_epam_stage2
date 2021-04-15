@@ -31,10 +31,5 @@ public class HardcoreTest extends CommonConditions{
 
         Assert.assertTrue(emailEstimateIsCalculatedCorrectly, "Estimate total cost doesn't match " +
                 "with emailed estimate total cost.");
-
-        /**
-         * TODO
-         * Jenkins
-         */
     }
 }

@@ -26,7 +26,7 @@
       <span class="top-banner-title-font">Test results</span>
       <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
       <br/>
-      <span class="top-banner-font-1">1 suite, 1 failed test</span>
+      <span class="top-banner-font-1">1 suite</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -40,7 +40,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" panel-name="suite-Smoke" class="navigator-link">
-              <span class="suite-name border-failed">Smoke</span>
+              <span class="suite-name border-passed">Smoke</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -93,21 +93,21 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">1 method, 1 failed,   </span>
+                    <span class="method-stats">1 method,   1 passed</span>
                   </li>
                   <li>
-                    <span class="method-list-title failed">Failed methods</span>
-                    <span class="show-or-hide-methods failed">
-                      <a href="#" panel-name="suite-Smoke" class="hide-methods failed suite-Smoke"> (hide)</a> <!-- hide-methods failed suite-Smoke -->
-                      <a href="#" panel-name="suite-Smoke" class="show-methods failed suite-Smoke"> (show)</a> <!-- show-methods failed suite-Smoke -->
+                    <span class="method-list-title passed">Passed methods</span>
+                    <span class="show-or-hide-methods passed">
+                      <a href="#" panel-name="suite-Smoke" class="hide-methods passed suite-Smoke"> (hide)</a> <!-- hide-methods passed suite-Smoke -->
+                      <a href="#" panel-name="suite-Smoke" class="show-methods passed suite-Smoke"> (show)</a> <!-- show-methods passed suite-Smoke -->
                     </span>
-                    <div class="method-list-content failed suite-Smoke">
+                    <div class="method-list-content passed suite-Smoke">
                       <span>
-                        <img src="failed.png" width="3%"/>
+                        <img src="passed.png" width="3%"/>
                         <a href="#" panel-name="suite-Smoke" title="framework.googleCloudPriceCalculatorApp.test.HardcoreTest" class="method navigator-link" hash-for-method="googleCloudPriceEstimateTotalMonthlyCostInEmailIsTheSameAsOnEstimateResultPage">googleCloudPriceEstimateTotalMonthlyCostInEmailIsTheSameAsOnEstimateResultPage</a> <!-- method navigator-link -->
                       </span>
                       <br/>
-                    </div> <!-- method-list-content failed suite-Smoke -->
+                    </div> <!-- method-list-content passed suite-Smoke -->
                   </li>
                 </ul>
               </div> <!-- suite-section-content -->
@@ -119,9 +119,9 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Smoke" class="panel Smoke">
-          <div class="suite-Smoke-class-failed">
+          <div class="suite-Smoke-class-passed">
             <div class="main-panel-header rounded-window-top">
-              <img src="failed.png"/>
+              <img src="passed.png"/>
               <span class="class-name">framework.googleCloudPriceCalculatorApp.test.HardcoreTest</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
@@ -130,35 +130,10 @@
                   <a name="googleCloudPriceEstimateTotalMonthlyCostInEmailIsTheSameAsOnEstimateResultPage">
                   </a> <!-- googleCloudPriceEstimateTotalMonthlyCostInEmailIsTheSameAsOnEstimateResultPage -->
                   <span class="method-name">googleCloudPriceEstimateTotalMonthlyCostInEmailIsTheSameAsOnEstimateResultPage</span>
-                  <div class="stack-trace">org.openqa.selenium.NoSuchElementException: Unable to locate element: //h2[@class = &apos;md-title&apos;]/b[@class = &apos;ng-binding2&apos;]
-For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
-Build info: version: &apos;4.0.0-alpha-7&apos;, revision: &apos;de8579b6d5&apos;
-System info: host: &apos;KOSARAU&apos;, ip: &apos;192.168.100.26&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;10.0.2&apos;
-Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 87.0, javascriptEnabled: true, moz:accessibilityChecks: false, moz:buildID: 20210318103112, moz:geckodriverVersion: 0.29.0, moz:headless: false, moz:processID: 9644, moz:profile: C:\Users\kosarau\AppData\Lo..., moz:shutdownTimeout: 60000, moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, platformVersion: 10.0, rotatable: false, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: fd65def1-457e-4969-818b-488ad491ffa7
-*** Element info: {Using=xpath, value=//h2[@class = &apos;md-title&apos;]/b[@class = &apos;ng-binding2&apos;]}
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:196)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:129)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:167)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:123)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:501)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:332)
-	at org.openqa.selenium.By$ByXPath.findElement(By.java:379)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:312)
-	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:70)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:39)
-	at com.sun.proxy.$Proxy28.getText(Unknown Source)
-	at framework.googleCloudPriceCalculatorApp.page.PriceCalculatorComputeEngineEstimateResultPage.validateEmailEstimateTotalCostIsTheSameAsOnEstimateResultPage(PriceCalculatorComputeEngineEstimateResultPage.java:151)
-	at framework.googleCloudPriceCalculatorApp.test.HardcoreTest.googleCloudPriceEstimateTotalMonthlyCostInEmailIsTheSameAsOnEstimateResultPage(HardcoreTest.java:30)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1378)
-... Removed 34 stack frames
-</div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-Smoke-class-failed -->
+          </div> <!-- suite-Smoke-class-passed -->
         </div> <!-- panel Smoke -->
         <div panel-name="test-xml-Smoke" class="panel">
           <div class="main-panel-header rounded-window-top">
@@ -215,12 +190,12 @@ data.addRows(1);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'googleCloudPriceEstimateTotalMonthlyCostInEmailIsTheSameAsOnEstimateResultPage')
 data.setCell(0, 2, 'framework.googleCloudPriceCalculatorApp.test.HardcoreTest')
-data.setCell(0, 3, 30926);
+data.setCell(0, 3, 23094);
 window.suiteTableData['Smoke']= { tableData: data, tableDiv: 'times-div-Smoke'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 30 seconds</span>
+              <span class="suite-total-time">Total running time: 23 seconds</span>
               <div id="times-div-Smoke">
               </div> <!-- times-div-Smoke -->
             </div> <!-- times-div -->
@@ -252,14 +227,12 @@ return data;
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <img src="failed.png">
-                </img>
                 <span class="method-name">googleCloudPriceEstimateTotalMonthlyCostInEmailIsTheSameAsOnEstimateResultPage</span>
-                <span class="method-start">4525 ms</span>
+                <span class="method-start">3738 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">browserTearDown</span>
-                <span class="method-start">35638 ms</span>
+                <span class="method-start">26834 ms</span>
               </div> <!-- configuration-method after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

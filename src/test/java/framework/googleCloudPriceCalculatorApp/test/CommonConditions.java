@@ -1,7 +1,7 @@
 package framework.googleCloudPriceCalculatorApp.test;
 
-import framework.common.TestListener;
 import framework.driver.*;
+import framework.common.TestListener;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
