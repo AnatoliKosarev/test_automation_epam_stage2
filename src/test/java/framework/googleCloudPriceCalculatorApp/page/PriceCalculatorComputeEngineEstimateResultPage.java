@@ -1,4 +1,4 @@
-package webdriver.googleCloudPriceCalculatorApp.page;
+package framework.googleCloudPriceCalculatorApp.page;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import static webdriver.constants.Constants.GoogleCloudComputeEngineParamNames.*;
+import static framework.constants.Constants.GoogleCloudComputeEngineParamNames.*;
 
 public class PriceCalculatorComputeEngineEstimateResultPage extends AbstractPage {
     private static Map<String, String> computeEngineParamList;
@@ -84,22 +84,22 @@ public class PriceCalculatorComputeEngineEstimateResultPage extends AbstractPage
                         case INSTANCE_TYPE:
                             result =
                                     result && elementIsPresentOnEstimateBlock(estimateComputedParamValueLocator,
-                                    formatValue(paramValue), "expected instance type param");
+                                            formatValue(paramValue), "expected instance type param");
                             break;
                         case DATACENTER_LOCATION:
                             result =
                                     result && elementIsPresentOnEstimateBlock(estimateComputedParamValueLocator,
-                                    formatValue(paramValue), "expected datacenter location param");
+                                            formatValue(paramValue), "expected datacenter location param");
                             break;
                         case LOCAL_SSD:
                             result =
                                     result && elementIsPresentOnEstimateBlock(estimateComputedParamValueLocator,
-                                    formatValue(paramValue), "expected local SSD param");
+                                            formatValue(paramValue), "expected local SSD param");
                             break;
                         case COMMITTED_USAGE:
                             result =
                                     result && elementIsPresentOnEstimateBlock(estimateComputedParamValueLocator,
-                                    paramValue, "expected committed usage param");
+                                            paramValue, "expected committed usage param");
                             break;
                     }
                 }
@@ -130,6 +130,7 @@ public class PriceCalculatorComputeEngineEstimateResultPage extends AbstractPage
         waiter.switchToFrame(frame1);
         waiter.switchToFrame(frame2);
         waiter.waitUntilElementIsDisplayed(emailAddressInputField, "'Email address' input field");
+        scrollElementToView(emailAddressInputField);
         emailAddressInputField.sendKeys(Keys.CONTROL + "v");
         return this;
     }
@@ -144,11 +145,12 @@ public class PriceCalculatorComputeEngineEstimateResultPage extends AbstractPage
     public boolean validateEmailEstimateTotalCostIsTheSameAsOnEstimateResultPage() {
         waiter.switchToFrame(frame1);
         waiter.switchToFrame(frame2);
+        scrollToPageTop();
         waiter.waitUntilElementIsDisplayed(estimatePageTotalCostElement, "'Estimate page total cost' " +
                 "value");
         String estimatePageTotalCost = estimatePageTotalCostElement.getText().replaceFirst("Total" +
                 " Estimated Cost: ", "").replaceFirst(" per 1 month", "");
-        System.out.println("DEBUG: Estimate page total cost: " + estimatePageTotalCost);
+        logger.info("Estimate page total cost: " + estimatePageTotalCost);
         return estimatePageTotalCost.equals(emailEstimateTotalCost);
     }
 
@@ -183,9 +185,9 @@ public class PriceCalculatorComputeEngineEstimateResultPage extends AbstractPage
                     return;
                 }
             }
-            System.out.println("DEBUG: Specific tab wasn't found in tab list.");
+            logger.error("Specific tab wasn't found in tab list.");
         } else {
-            System.out.println("DEBUG: Tab list is empty");
+            logger.error("Tab list is empty");
         }
     }
 }

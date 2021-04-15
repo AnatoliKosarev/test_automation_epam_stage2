@@ -1,0 +1,16 @@
+-------------------------------------------------------------------------------
+Test set: TestSuite
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 38.165 s <<< FAILURE! - in TestSuite
+framework.googleCloudPriceCalculatorApp.test.HardcoreTest.googleCloudPriceEstimateTotalMonthlyCostInEmailIsTheSameAsOnEstimateResultPage  Time elapsed: 31.089 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+Unable to locate element: //h2[@class = 'md-title']/b[@class = 'ng-binding2']
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: '4.0.0-alpha-7', revision: 'de8579b6d5'
+System info: host: 'KOSARAU', ip: '192.168.100.26', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '10.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 87.0, javascriptEnabled: true, moz:accessibilityChecks: false, moz:buildID: 20210318103112, moz:geckodriverVersion: 0.29.0, moz:headless: false, moz:processID: 9644, moz:profile: C:\Users\kosarau\AppData\Lo..., moz:shutdownTimeout: 60000, moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, platformVersion: 10.0, rotatable: false, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: fd65def1-457e-4969-818b-488ad491ffa7
+*** Element info: {Using=xpath, value=//h2[@class = 'md-title']/b[@class = 'ng-binding2']}
+	at framework.googleCloudPriceCalculatorApp.test.HardcoreTest.googleCloudPriceEstimateTotalMonthlyCostInEmailIsTheSameAsOnEstimateResultPage(HardcoreTest.java:30)
+
