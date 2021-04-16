@@ -1,8 +1,14 @@
 package framework.googleCloudPriceCalculatorApp.page;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+
+import java.awt.*;
+import java.awt.datatransfer.DataFlavor;
+import java.awt.datatransfer.UnsupportedFlavorException;
+import java.io.IOException;
 
 public class TempMailPage extends AbstractPage {
     private final String returnPageHandler;
@@ -32,7 +38,8 @@ public class TempMailPage extends AbstractPage {
         takeAndSaveScreenshot();
         copyEmailAddressButton.click();
         takeAndSaveScreenshot();
-        driver.switchTo().window(returnPageHandler);
+        PriceCalculatorComputeEngineEstimateResultPage.tempEmailAddress = getCopiedValue();
+
         return new PriceCalculatorComputeEngineEstimateResultPage(driver);
     }
 
@@ -50,4 +57,15 @@ public class TempMailPage extends AbstractPage {
         return new PriceCalculatorComputeEngineEstimateResultPage(driver, emailEstimateTotalCost);
     }
 
+    private String getCopiedValue() {
+        String value = "";
+        try {
+            value =
+                    (String) Toolkit.getDefaultToolkit().getSystemClipboard().getData(DataFlavor.stringFlavor);
+            driver.switchTo().window(returnPageHandler);
+        } catch (HeadlessException | UnsupportedFlavorException | IOException e) {
+          e.getLocalizedMessage();
+        }
+        return value;
+    }
 }

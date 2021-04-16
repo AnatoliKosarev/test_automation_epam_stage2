@@ -14,6 +14,7 @@ public class PriceCalculatorComputeEngineEstimateResultPage extends AbstractPage
     private static ArrayList<String> tabList;
     private static String estimateResultPageHandler;
     private static String tempEmailServiceURL;
+    public static String tempEmailAddress;
     private boolean computeEngineEstimateIsCorrect = false;
     private List<WebElement> computeEngineEstimateList;
     private String emailEstimateTotalCost;
@@ -132,7 +133,7 @@ public class PriceCalculatorComputeEngineEstimateResultPage extends AbstractPage
         waiter.waitUntilElementIsDisplayed(emailAddressInputField, "'Email address' input field");
         scrollElementToTheMiddleOfThePage(emailAddressInputField);
         takeAndSaveScreenshot();
-        emailAddressInputField.sendKeys(Keys.chord(Keys.CONTROL + "v"));
+        emailAddressInputField.sendKeys(tempEmailAddress);
         takeAndSaveScreenshot();
         return this;
     }
