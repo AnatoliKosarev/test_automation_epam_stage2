@@ -3,7 +3,7 @@
 <suite name="Smoke" verbose="1" >
     <test name="HurtMePlenty">
         <classes>
-            <class name="framework.googleCloudPriceCalculatorApp.test.HurtMePlentyTest"/>
+            <class name="framework.googleCloudPriceCalculatorApp.test.HardcoreTest"/>
         </classes>
     </test>
 </suite>
