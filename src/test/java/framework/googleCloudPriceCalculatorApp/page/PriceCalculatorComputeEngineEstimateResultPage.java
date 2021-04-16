@@ -131,14 +131,17 @@ public class PriceCalculatorComputeEngineEstimateResultPage extends AbstractPage
         waiter.switchToFrame(frame2);
         waiter.waitUntilElementIsDisplayed(emailAddressInputField, "'Email address' input field");
         scrollElementToView(emailAddressInputField);
-        waiter.waitUntilElementIsDisplayed(emailAddressInputField, "'Email address' input field");
+        takeAndSaveScreenshot();
         emailAddressInputField.sendKeys(Keys.CONTROL + "v");
+        takeAndSaveScreenshot();
         return this;
     }
 
     public TempMailPage sendEstimateEmail() {
         waiter.waitUntilElementIsClickable(sendEmailButton, "'Send email' button");
+        takeAndSaveScreenshot();
         sendEmailButton.click();
+        takeAndSaveScreenshot();
         switchToSpecificTabContaining(tempEmailServiceURL);
         return new TempMailPage(driver, estimateResultPageHandler);
     }
