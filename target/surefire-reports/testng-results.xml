@@ -2,20 +2,20 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2021-04-15T21:13:40 MSK" name="Smoke" finished-at="2021-04-15T21:14:07 MSK" duration-ms="27758">
+  <suite started-at="2021-04-15T21:30:02 MSK" name="Smoke" finished-at="2021-04-15T21:30:30 MSK" duration-ms="27640">
     <groups>
     </groups>
-    <test started-at="2021-04-15T21:13:40 MSK" name="Hardcore" finished-at="2021-04-15T21:14:07 MSK" duration-ms="27758">
+    <test started-at="2021-04-15T21:30:02 MSK" name="Hardcore" finished-at="2021-04-15T21:30:30 MSK" duration-ms="27640">
       <class name="framework.googleCloudPriceCalculatorApp.test.HardcoreTest">
-        <test-method is-config="true" signature="browserSetUp()[pri:0, instance:framework.googleCloudPriceCalculatorApp.test.HardcoreTest@306851c7]" started-at="2021-04-15T21:13:40 MSK" name="browserSetUp" finished-at="2021-04-15T21:13:43 MSK" duration-ms="3738" status="PASS">
+        <test-method is-config="true" signature="browserSetUp()[pri:0, instance:framework.googleCloudPriceCalculatorApp.test.HardcoreTest@306851c7]" started-at="2021-04-15T21:30:02 MSK" name="browserSetUp" finished-at="2021-04-15T21:30:05 MSK" duration-ms="2991" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- browserSetUp -->
-        <test-method signature="googleCloudPriceEstimateTotalMonthlyCostInEmailIsTheSameAsOnEstimateResultPage()[pri:0, instance:framework.googleCloudPriceCalculatorApp.test.HardcoreTest@306851c7]" started-at="2021-04-15T21:13:43 MSK" name="googleCloudPriceEstimateTotalMonthlyCostInEmailIsTheSameAsOnEstimateResultPage" finished-at="2021-04-15T21:14:06 MSK" duration-ms="23094" status="PASS">
+        <test-method signature="googleCloudPriceEstimateTotalMonthlyCostInEmailIsTheSameAsOnEstimateResultPage()[pri:0, instance:framework.googleCloudPriceCalculatorApp.test.HardcoreTest@306851c7]" started-at="2021-04-15T21:30:05 MSK" name="googleCloudPriceEstimateTotalMonthlyCostInEmailIsTheSameAsOnEstimateResultPage" finished-at="2021-04-15T21:30:29 MSK" duration-ms="23866" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- googleCloudPriceEstimateTotalMonthlyCostInEmailIsTheSameAsOnEstimateResultPage -->
-        <test-method is-config="true" signature="browserTearDown()[pri:0, instance:framework.googleCloudPriceCalculatorApp.test.HardcoreTest@306851c7]" started-at="2021-04-15T21:14:06 MSK" name="browserTearDown" finished-at="2021-04-15T21:14:07 MSK" duration-ms="888" status="PASS">
+        <test-method is-config="true" signature="browserTearDown()[pri:0, instance:framework.googleCloudPriceCalculatorApp.test.HardcoreTest@306851c7]" started-at="2021-04-15T21:30:29 MSK" name="browserTearDown" finished-at="2021-04-15T21:30:30 MSK" duration-ms="754" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- browserTearDown -->
