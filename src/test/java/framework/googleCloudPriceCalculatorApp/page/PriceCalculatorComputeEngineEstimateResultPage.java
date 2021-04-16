@@ -41,7 +41,7 @@ public class PriceCalculatorComputeEngineEstimateResultPage extends AbstractPage
     @FindBy(xpath = "//button[@aria-label = 'Send Email']")
     private WebElement sendEmailButton;
 
-    @FindBy(xpath = "//h2[@class = 'md-title']/b[@class = 'ng-binding2']")
+    @FindBy(xpath = "//h2[@class = 'md-title']/b[@class = 'ng-binding']")
     private WebElement estimatePageTotalCostElement;
 
     public PriceCalculatorComputeEngineEstimateResultPage(WebDriver driver) {
