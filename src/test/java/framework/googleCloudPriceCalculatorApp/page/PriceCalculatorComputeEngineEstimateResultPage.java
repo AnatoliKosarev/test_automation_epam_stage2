@@ -15,9 +15,9 @@ public class PriceCalculatorComputeEngineEstimateResultPage extends AbstractPage
     private static String estimateResultPageHandler;
     private static String tempEmailServiceURL;
     public static String tempEmailAddress;
+    public static String emailEstimateTotalCost;
     private boolean computeEngineEstimateIsCorrect = false;
     private List<WebElement> computeEngineEstimateList;
-    private String emailEstimateTotalCost;
     private final String computeEngineEstimateLocator = "//md-list[@class = 'cartitem ng-scope']";
     private final String estimateComputedParamValueLocator = "//div[@class = 'md-list-item-text " + "ng"
             + "-binding' and contains(text(), '%s')]";
@@ -47,11 +47,6 @@ public class PriceCalculatorComputeEngineEstimateResultPage extends AbstractPage
 
     public PriceCalculatorComputeEngineEstimateResultPage(WebDriver driver) {
         super(driver);
-    }
-
-    public PriceCalculatorComputeEngineEstimateResultPage(WebDriver driver, String emailEstimateTotalCost) {
-        super(driver);
-        this.emailEstimateTotalCost = emailEstimateTotalCost;
     }
 
     public PriceCalculatorComputeEngineEstimateResultPage(WebDriver driver, Map<String
@@ -132,17 +127,13 @@ public class PriceCalculatorComputeEngineEstimateResultPage extends AbstractPage
         waiter.switchToFrame(frame2);
         waiter.waitUntilElementIsDisplayed(emailAddressInputField, "'Email address' input field");
         scrollElementToTheMiddleOfThePage(emailAddressInputField);
-        takeAndSaveScreenshot();
         emailAddressInputField.sendKeys(tempEmailAddress);
-        takeAndSaveScreenshot();
         return this;
     }
 
     public TempMailPage sendEstimateEmail() {
         waiter.waitUntilElementIsClickable(sendEmailButton, "'Send email' button");
-        takeAndSaveScreenshot();
         sendEmailButton.click();
-        takeAndSaveScreenshot();
         switchToSpecificTabContaining(tempEmailServiceURL);
         return new TempMailPage(driver, estimateResultPageHandler);
     }

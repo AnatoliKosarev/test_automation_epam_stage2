@@ -1,6 +1,5 @@
 package framework.googleCloudPriceCalculatorApp.page;
 
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -12,7 +11,6 @@ import java.io.IOException;
 
 public class TempMailPage extends AbstractPage {
     private final String returnPageHandler;
-    private String emailEstimateTotalCost;
     private String emailSizeLocator = "//span[contains(text(), '40 MB')]";
 
     @FindBy(id = "address")
@@ -35,26 +33,22 @@ public class TempMailPage extends AbstractPage {
     public PriceCalculatorComputeEngineEstimateResultPage copyGeneratedTemporaryEmailAddress() {
         waiter.waitUntilElementIsDisplayed(emailSizeLocator, "'Email container size' element");
         waiter.waitUntilElementIsClickable(copyEmailAddressButton, "'Copy email address' button");
-        takeAndSaveScreenshot();
         copyEmailAddressButton.click();
-        takeAndSaveScreenshot();
         PriceCalculatorComputeEngineEstimateResultPage.tempEmailAddress = getCopiedValue();
-
         return new PriceCalculatorComputeEngineEstimateResultPage(driver);
     }
 
     public PriceCalculatorComputeEngineEstimateResultPage getEmailEstimateCost() {
         driver.navigate().refresh();
         waiter.waitUntilElementIsDisplayed(mailMessageButton, "'Mail message' button");
-        takeAndSaveScreenshot();
         mailMessageButton.click();
         waiter.switchToFrame(frame);
         waiter.waitUntilElementIsDisplayed(totalCostElement, "'Estimate total cost' element");
-        emailEstimateTotalCost = totalCostElement.getText().replaceFirst("Estimated Monthly Cost:" +
-                " ", "");
-        logger.info("Email total cost: " + emailEstimateTotalCost);
+        PriceCalculatorComputeEngineEstimateResultPage.emailEstimateTotalCost =
+                totalCostElement.getText().replaceFirst("Estimated Monthly Cost: ", "");
+        logger.info("Email total cost: " + PriceCalculatorComputeEngineEstimateResultPage.emailEstimateTotalCost);
         driver.switchTo().window(returnPageHandler);
-        return new PriceCalculatorComputeEngineEstimateResultPage(driver, emailEstimateTotalCost);
+        return new PriceCalculatorComputeEngineEstimateResultPage(driver);
     }
 
     private String getCopiedValue() {
