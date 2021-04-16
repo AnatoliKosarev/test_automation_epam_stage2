@@ -29,8 +29,6 @@ public class HardcoreTest extends CommonConditions{
                 .getEmailEstimateCost()
                 .validateEmailEstimateTotalCostIsTheSameAsOnEstimateResultPage();
 
-        System.out.println("HARDCORE TEST DONE");
-
         Assert.assertTrue(emailEstimateIsCalculatedCorrectly, "Estimate total cost doesn't match " +
                 "with emailed estimate total cost.");
     }

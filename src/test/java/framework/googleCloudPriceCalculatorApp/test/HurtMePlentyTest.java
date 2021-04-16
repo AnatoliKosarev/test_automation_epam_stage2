@@ -27,8 +27,6 @@ public class HurtMePlentyTest extends CommonConditions{
                 .addInstanceToEstimate()
                 .validateCorrectnessOfEstimateCalculation(TestDataReader.getTestData(TESTDATA_EXPECTED_TOTAL_COST));
 
-        System.out.println("HURTMEPLENTY TEST DONE");
-
         Assert.assertTrue(estimateIsCalculatedCorrectly, "Estimate wasn't created successfully");
     }
 }
