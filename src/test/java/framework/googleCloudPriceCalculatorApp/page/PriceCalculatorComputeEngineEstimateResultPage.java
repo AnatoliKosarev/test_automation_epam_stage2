@@ -60,7 +60,6 @@ public class PriceCalculatorComputeEngineEstimateResultPage extends AbstractPage
         waiter.waitUntilElementIsDisplayed(computeEngineEstimateLocator, "'Compute engine' " +
                 "estimate");
         scrollElementToView(estimatePageTotalCostElement);
-        takeAndSaveScreenshot();
         computeEngineEstimateList = driver.findElements(By.xpath(computeEngineEstimateLocator));
         if (computeEngineEstimateList.size() == 1) {
             if (elementIsPresentOnEstimateBlock(estimateTotalCostLocator, expectedCostValue,
@@ -101,6 +100,7 @@ public class PriceCalculatorComputeEngineEstimateResultPage extends AbstractPage
                             break;
                     }
                 }
+                takeAndSaveScreenshot();
                 if (result) {
                     computeEngineEstimateIsCorrect = true;
                 }
