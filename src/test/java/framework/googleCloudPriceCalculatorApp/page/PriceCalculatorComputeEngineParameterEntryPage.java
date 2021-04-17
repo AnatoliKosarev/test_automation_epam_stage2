@@ -82,36 +82,46 @@ public class PriceCalculatorComputeEngineParameterEntryPage extends AbstractPage
         String value;
         if (!(value = engineEntity.getNumberOfInstances()).isEmpty()) {
             enterNumberOfInstancesParameter(value);
+            takeAndSaveScreenshot();
         }
         if (!(value = engineEntity.getOSSoftware()).isEmpty()) {
             selectOperatingSystemSoftwareParameters(value);
+            takeAndSaveScreenshot();
         }
         if (!(value = engineEntity.getVMClass()).isEmpty()) {
             selectMachineClassParameter(value);
+            takeAndSaveScreenshot();
         }
         if (!(value = engineEntity.getVMSeries()).isEmpty()) {
             selectMachineSeriesParameter(value);
+            takeAndSaveScreenshot();
         }
         if (!(value = engineEntity.getInstanceType()).isEmpty()) {
             selectMachineTypeParameter(value);
+            takeAndSaveScreenshot();
         }
         if (!engineEntity.getGPUType().isEmpty() || !engineEntity.getNumberOfGPU().isEmpty()) {
             selectAddGPUsCheckbox();
             if (!(value = engineEntity.getGPUType()).isEmpty()) {
                 selectGPUTypeParameter(value);
+                takeAndSaveScreenshot();
             }
             if (!(value = engineEntity.getNumberOfGPU()).isEmpty()) {
                 selectNumberOfGPUsParameter(value);
+                takeAndSaveScreenshot();
             }
         }
         if (!(value = engineEntity.getLocalSSD()).isEmpty()) {
             selectLocalSSDParameter(value);
+            takeAndSaveScreenshot();
         }
         if (!(value = engineEntity.getDatacenterLocation()).isEmpty()) {
             selectDatacenterLocation(value);
+            takeAndSaveScreenshot();
         }
         if (!(value = engineEntity.getCommittedUsage()).isEmpty()) {
             selectCommittedUsageParameter(value);
+            takeAndSaveScreenshot();
         }
         return this;
     }
