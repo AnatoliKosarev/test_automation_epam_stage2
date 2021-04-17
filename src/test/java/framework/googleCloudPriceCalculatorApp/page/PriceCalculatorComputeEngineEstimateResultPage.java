@@ -59,7 +59,7 @@ public class PriceCalculatorComputeEngineEstimateResultPage extends AbstractPage
         boolean result = true;
         waiter.waitUntilElementIsDisplayed(computeEngineEstimateLocator, "'Compute engine' " +
                 "estimate");
-        scrollToPageTop();
+        scrollElementToView(driver.findElement(By.xpath(computeEngineEstimateLocator)));
         takeAndSaveScreenshot();
         computeEngineEstimateList = driver.findElements(By.xpath(computeEngineEstimateLocator));
         if (computeEngineEstimateList.size() == 1) {
