@@ -36,6 +36,7 @@ public class TempMailPage extends AbstractPage {
         waiter.waitUntilElementIsClickable(copyEmailAddressButton, "'Copy email address' button");
         copyEmailAddressButton.click();
         PriceCalculatorComputeEngineEstimateResultPage.tempEmailAddress = getCopiedValue();
+        logger.info(PriceCalculatorComputeEngineEstimateResultPage.tempEmailAddress);
         return new PriceCalculatorComputeEngineEstimateResultPage(driver);
     }
 
