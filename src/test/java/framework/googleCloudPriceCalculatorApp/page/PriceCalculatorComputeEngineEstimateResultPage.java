@@ -3,6 +3,7 @@ package framework.googleCloudPriceCalculatorApp.page;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -57,9 +58,10 @@ public class PriceCalculatorComputeEngineEstimateResultPage extends AbstractPage
 
     public boolean validateCorrectnessOfEstimateCalculation(String expectedCostValue) {
         boolean result = true;
+        scrollElementToView(estimatePageTotalCostElement);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         waiter.waitUntilElementIsDisplayed(computeEngineEstimateLocator, "'Compute engine' " +
                 "estimate");
-        scrollElementToView(estimatePageTotalCostElement);
         computeEngineEstimateList = driver.findElements(By.xpath(computeEngineEstimateLocator));
         if (computeEngineEstimateList.size() == 1) {
             if (elementIsPresentOnEstimateBlock(estimateTotalCostLocator, expectedCostValue,
