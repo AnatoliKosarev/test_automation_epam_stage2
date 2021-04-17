@@ -46,6 +46,9 @@ public class PriceCalculatorComputeEngineEstimateResultPage extends AbstractPage
     @FindBy(xpath = "//h2[@class = 'md-title']/b[@class = 'ng-binding']")
     private WebElement estimatePageTotalCostElement;
 
+    @FindBy(xpath = "//h2[contains(text(), 'Estimate')]")
+    private WebElement estimateHeader;
+
     public PriceCalculatorComputeEngineEstimateResultPage(WebDriver driver) {
         super(driver);
     }
@@ -128,7 +131,7 @@ public class PriceCalculatorComputeEngineEstimateResultPage extends AbstractPage
         waiter.switchToFrame(frame1);
         waiter.switchToFrame(frame2);
         waiter.waitUntilElementIsDisplayed(emailAddressInputField, "'Email address' input field");
-        scrollElementToTheMiddleOfThePage(emailAddressInputField);
+        scrollElementToView(emailAddressInputField);
         emailAddressInputField.sendKeys(tempEmailAddress);
         return this;
     }
@@ -143,7 +146,7 @@ public class PriceCalculatorComputeEngineEstimateResultPage extends AbstractPage
     public boolean validateEmailEstimateTotalCostIsTheSameAsOnEstimateResultPage() {
         waiter.switchToFrame(frame1);
         waiter.switchToFrame(frame2);
-        scrollElementToView(estimatePageTotalCostElement);
+        scrollElementToView(estimateHeader);
         waiter.waitUntilElementIsDisplayed(estimatePageTotalCostElement, "'Estimate page total cost' " +
                 "value");
         String estimatePageTotalCost = estimatePageTotalCostElement.getText().replaceFirst("Total" +
