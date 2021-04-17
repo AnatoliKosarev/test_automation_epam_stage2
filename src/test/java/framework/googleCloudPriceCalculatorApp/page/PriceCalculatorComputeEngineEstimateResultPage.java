@@ -147,12 +147,13 @@ public class PriceCalculatorComputeEngineEstimateResultPage extends AbstractPage
     public boolean validateEmailEstimateTotalCostIsTheSameAsOnEstimateResultPage() {
         waiter.switchToFrame(frame1);
         waiter.switchToFrame(frame2);
-        scrollToPageTop();
+        scrollElementToView(estimatePageTotalCostElement);
         waiter.waitUntilElementIsDisplayed(estimatePageTotalCostElement, "'Estimate page total cost' " +
                 "value");
         String estimatePageTotalCost = estimatePageTotalCostElement.getText().replaceFirst("Total" +
                 " Estimated Cost: ", "").replaceFirst(" per 1 month", "");
         logger.info("Estimate page total cost: " + estimatePageTotalCost);
+        takeAndSaveScreenshot();
         return estimatePageTotalCost.equals(emailEstimateTotalCost);
     }
 
