@@ -17,6 +17,7 @@ public class HurtMePlentyTest extends CommonConditions{
     @Test
     public void googleCloudPriceEstimateIsCalculatedCorrectly() {
         EngineEntity engineEntity = EngineEntityCreator.createEngineEntity();
+        LOGGER.info("HURTMEPLENTY test is running");
 
         boolean estimateIsCalculatedCorrectly = new HomePage(driver)
                 .openPage(GOOGLE_CLOUD_HOME_URL)

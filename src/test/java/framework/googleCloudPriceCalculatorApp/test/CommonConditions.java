@@ -18,7 +18,7 @@ import static framework.common.Config.CLEAR_SCREENSHOT_DIR;
 @Listeners({TestListener.class})
 public class CommonConditions {
     protected WebDriver driver;
-    private static final Logger LOGGER = LogManager.getRootLogger();
+    protected static final Logger LOGGER = LogManager.getRootLogger();
 
     static {
         LOGGER.info("START TIME: " + LocalTime.now());

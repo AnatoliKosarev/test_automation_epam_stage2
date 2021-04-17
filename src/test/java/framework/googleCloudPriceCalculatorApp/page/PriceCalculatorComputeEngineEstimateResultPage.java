@@ -59,6 +59,7 @@ public class PriceCalculatorComputeEngineEstimateResultPage extends AbstractPage
         boolean result = true;
         waiter.waitUntilElementIsDisplayed(computeEngineEstimateLocator, "'Compute engine' " +
                 "estimate");
+        takeAndSaveScreenshot();
         computeEngineEstimateList = driver.findElements(By.xpath(computeEngineEstimateLocator));
         if (computeEngineEstimateList.size() == 1) {
             if (elementIsPresentOnEstimateBlock(estimateTotalCostLocator, expectedCostValue,
@@ -126,7 +127,7 @@ public class PriceCalculatorComputeEngineEstimateResultPage extends AbstractPage
         waiter.switchToFrame(frame1);
         waiter.switchToFrame(frame2);
         waiter.waitUntilElementIsDisplayed(emailAddressInputField, "'Email address' input field");
-        scrollElementToTheMiddleOfThePage(emailAddressInputField);
+        scrollElementToView(emailAddressInputField);
         emailAddressInputField.sendKeys(tempEmailAddress);
         return this;
     }

@@ -13,6 +13,7 @@ public class HardcoreTest extends CommonConditions{
     @Test
     public void googleCloudPriceEstimateTotalMonthlyCostInEmailIsTheSameAsOnEstimateResultPage() {
         EngineEntity engineEntity = EngineEntityCreator.createEngineEntity();
+        LOGGER.info("HARDCORE test is running");
 
         boolean emailEstimateIsCalculatedCorrectly = new HomePage(driver)
                 .openPage(GOOGLE_CLOUD_HOME_URL)
