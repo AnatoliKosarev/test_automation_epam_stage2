@@ -1,17 +1,22 @@
 package framework.googleCloudPriceCalculatorApp.page;
 
 import framework.googleCloudPriceCalculatorApp.model.EngineEntity;
+import framework.waits.Waiter;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import webdriver.waits.CustomConditions;
 
+import java.time.Duration;
 import java.util.HashMap;
 import java.util.Map;
 
 import static framework.constants.Constants.GoogleCloudComputeEngineFilterLocatorDynamicParts.*;
 import static framework.constants.Constants.GoogleCloudComputeEngineParamNames.*;
+import static webdriver.constants.Constants.TimeVariables.WAIT_TIMEOUT_5_SECONDS;
 
 public class PriceCalculatorComputeEngineParameterEntryPage extends AbstractPage {
     private Map<String, String> computeEngineParamList;
@@ -82,46 +87,36 @@ public class PriceCalculatorComputeEngineParameterEntryPage extends AbstractPage
         String value;
         if (!(value = engineEntity.getNumberOfInstances()).isEmpty()) {
             enterNumberOfInstancesParameter(value);
-            takeAndSaveScreenshot();
         }
         if (!(value = engineEntity.getOSSoftware()).isEmpty()) {
             selectOperatingSystemSoftwareParameters(value);
-            takeAndSaveScreenshot();
         }
         if (!(value = engineEntity.getVMClass()).isEmpty()) {
             selectMachineClassParameter(value);
-            takeAndSaveScreenshot();
         }
         if (!(value = engineEntity.getVMSeries()).isEmpty()) {
             selectMachineSeriesParameter(value);
-            takeAndSaveScreenshot();
         }
         if (!(value = engineEntity.getInstanceType()).isEmpty()) {
             selectMachineTypeParameter(value);
-            takeAndSaveScreenshot();
         }
         if (!engineEntity.getGPUType().isEmpty() || !engineEntity.getNumberOfGPU().isEmpty()) {
             selectAddGPUsCheckbox();
             if (!(value = engineEntity.getGPUType()).isEmpty()) {
                 selectGPUTypeParameter(value);
-                takeAndSaveScreenshot();
             }
             if (!(value = engineEntity.getNumberOfGPU()).isEmpty()) {
                 selectNumberOfGPUsParameter(value);
-                takeAndSaveScreenshot();
             }
         }
         if (!(value = engineEntity.getLocalSSD()).isEmpty()) {
             selectLocalSSDParameter(value);
-            takeAndSaveScreenshot();
         }
         if (!(value = engineEntity.getDatacenterLocation()).isEmpty()) {
             selectDatacenterLocation(value);
-            takeAndSaveScreenshot();
         }
         if (!(value = engineEntity.getCommittedUsage()).isEmpty()) {
             selectCommittedUsageParameter(value);
-            takeAndSaveScreenshot();
         }
         return this;
     }

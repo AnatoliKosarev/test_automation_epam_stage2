@@ -101,7 +101,6 @@ public class PriceCalculatorComputeEngineEstimateResultPage extends AbstractPage
                             break;
                     }
                 }
-                takeAndSaveScreenshot();
                 if (result) {
                     computeEngineEstimateIsCorrect = true;
                 }
@@ -130,17 +129,13 @@ public class PriceCalculatorComputeEngineEstimateResultPage extends AbstractPage
         waiter.switchToFrame(frame2);
         waiter.waitUntilElementIsDisplayed(emailAddressInputField, "'Email address' input field");
         scrollElementToTheMiddleOfThePage(emailAddressInputField);
-        takeAndSaveScreenshot();
         emailAddressInputField.sendKeys(tempEmailAddress);
-        takeAndSaveScreenshot();
         return this;
     }
 
     public TempMailPage sendEstimateEmail() {
         waiter.waitUntilElementIsClickable(sendEmailButton, "'Send email' button");
-        takeAndSaveScreenshot();
         sendEmailButton.click();
-        takeAndSaveScreenshot();
         switchToSpecificTabContaining(tempEmailServiceURL);
         return new TempMailPage(driver, estimateResultPageHandler);
     }
