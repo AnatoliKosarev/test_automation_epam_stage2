@@ -58,7 +58,7 @@ public class PriceCalculatorComputeEngineEstimateResultPage extends AbstractPage
 
     public boolean validateCorrectnessOfEstimateCalculation(String expectedCostValue) {
         boolean result = true;
-        scrollElementToTheMiddleOfThePage(estimatePageTotalCostElement);
+        scrollElementToView(estimatePageTotalCostElement);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         waiter.waitUntilElementIsDisplayed(computeEngineEstimateLocator, "'Compute engine' " +
                 "estimate");
