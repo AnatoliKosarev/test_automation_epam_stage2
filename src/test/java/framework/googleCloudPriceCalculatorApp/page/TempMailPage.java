@@ -40,6 +40,7 @@ public class TempMailPage extends AbstractPage {
         PriceCalculatorComputeEngineEstimateResultPage.tempEmailAddress = getCopiedValue();
         logger.info(PriceCalculatorComputeEngineEstimateResultPage.tempEmailAddress + " temporary" +
                 " email address is copied");
+        driver.switchTo().window(returnPageHandler);
         return new PriceCalculatorComputeEngineEstimateResultPage(driver);
     }
 
