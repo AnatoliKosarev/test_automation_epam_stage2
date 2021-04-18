@@ -6,6 +6,7 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 import java.time.Duration;
 
@@ -27,6 +28,7 @@ public class Waiter {
         } catch (TimeoutException e) {
             logger.error(String.format((debugMessage) + "%n", elementValueAndName, "displayed on " +
                     "the page"));
+            Assert.fail(elementValueAndName + " is not displayed on the page");
         }
     }
 
@@ -36,6 +38,7 @@ public class Waiter {
         } catch (TimeoutException e) {
             logger.error(String.format((debugMessage) + "%n", elementValueAndName, "displayed on " +
                     "the page"));
+            Assert.fail(elementValueAndName + " is not displayed on the page");
         }
     }
 

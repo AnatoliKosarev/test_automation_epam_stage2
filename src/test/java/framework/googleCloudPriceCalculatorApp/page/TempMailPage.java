@@ -1,18 +1,14 @@
 package framework.googleCloudPriceCalculatorApp.page;
 
-import framework.waits.Waiter;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.awt.*;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.IOException;
 import java.time.Duration;
-
-import static framework.constants.Constants.TimeVariables.WAIT_TIMEOUT_10_SECONDS;
 
 public class TempMailPage extends AbstractPage {
     private final String returnPageHandler;
@@ -36,6 +32,7 @@ public class TempMailPage extends AbstractPage {
     }
 
     public PriceCalculatorComputeEngineEstimateResultPage copyGeneratedTemporaryEmailAddress() {
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
         driver.navigate().refresh();
         waiter.waitUntilElementIsDisplayed(emailSizeLocator, "'Email container size' element");
         waiter.waitUntilElementIsClickable(copyEmailAddressButton, "'Copy email address' button");

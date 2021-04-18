@@ -1,22 +1,17 @@
 package framework.googleCloudPriceCalculatorApp.page;
 
 import framework.googleCloudPriceCalculatorApp.model.EngineEntity;
-import framework.waits.Waiter;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import webdriver.waits.CustomConditions;
 
-import java.time.Duration;
 import java.util.HashMap;
 import java.util.Map;
 
 import static framework.constants.Constants.GoogleCloudComputeEngineFilterLocatorDynamicParts.*;
 import static framework.constants.Constants.GoogleCloudComputeEngineParamNames.*;
-import static webdriver.constants.Constants.TimeVariables.WAIT_TIMEOUT_5_SECONDS;
 
 public class PriceCalculatorComputeEngineParameterEntryPage extends AbstractPage {
     private Map<String, String> computeEngineParamList;
