@@ -32,7 +32,6 @@ public class TempMailPage extends AbstractPage {
     }
 
     public PriceCalculatorComputeEngineEstimateResultPage copyGeneratedTemporaryEmailAddress() {
-        driver.navigate().refresh();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
         driver.navigate().refresh();
         waiter.waitUntilElementIsDisplayed(emailSizeLocator, "'Email container size' element");
