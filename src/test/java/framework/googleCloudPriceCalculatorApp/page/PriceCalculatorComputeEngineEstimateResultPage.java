@@ -117,6 +117,7 @@ public class PriceCalculatorComputeEngineEstimateResultPage extends AbstractPage
     public PriceCalculatorComputeEngineEstimateResultPage displayEmailEstimateEntryForm() {
         waiter.waitUntilElementIsClickable(emailEstimateButton, "'Email estimate' button");
         emailEstimateButton.click();
+        takeAndSaveScreenshot();
         return this;
     }
 
@@ -133,8 +134,10 @@ public class PriceCalculatorComputeEngineEstimateResultPage extends AbstractPage
         waiter.switchToFrame(frame1);
         waiter.switchToFrame(frame2);
         scrollElementToView(emailAddressInputField);
+        takeAndSaveScreenshot();
         waiter.waitUntilElementIsDisplayed(emailAddressInputField, "'Email address' input field");
         emailAddressInputField.sendKeys(tempEmailAddress);
+        takeAndSaveScreenshot();
         return this;
     }
 
