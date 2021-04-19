@@ -118,7 +118,7 @@ public class PriceCalculatorComputeEngineEstimateResultPage extends AbstractPage
     public PriceCalculatorComputeEngineEstimateResultPage displayEmailEstimateEntryForm() {
         waiter.waitUntilElementIsClickable(emailEstimateButton, "'Email estimate' button");
         scrollElementToView(emailEstimateButton);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
         emailEstimateButton.click();
         takeAndSaveScreenshot();
         return this;
