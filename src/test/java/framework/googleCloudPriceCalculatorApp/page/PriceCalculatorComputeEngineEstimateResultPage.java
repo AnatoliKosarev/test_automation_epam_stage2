@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -117,6 +118,7 @@ public class PriceCalculatorComputeEngineEstimateResultPage extends AbstractPage
     public PriceCalculatorComputeEngineEstimateResultPage displayEmailEstimateEntryForm() {
         waiter.waitUntilElementIsClickable(emailEstimateButton, "'Email estimate' button");
         scrollElementToView(emailEstimateButton);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
         emailEstimateButton.click();
         takeAndSaveScreenshot();
         return this;
