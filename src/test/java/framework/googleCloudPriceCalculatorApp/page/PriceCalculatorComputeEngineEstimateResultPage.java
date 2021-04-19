@@ -5,6 +5,8 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 import java.util.ArrayList;
@@ -143,7 +145,7 @@ public class PriceCalculatorComputeEngineEstimateResultPage extends AbstractPage
     }
 
     public TempMailPage sendEstimateEmail() {
-        waiter.waitUntilElementIsClickable(sendEmailButton, "'Send email' button");
+        new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.not(ExpectedConditions.attributeToBe(sendEmailButton, "disabled", "disabled")));
         sendEmailButton.click();
         takeAndSaveScreenshot();
         switchToSpecificTabContaining(tempEmailServiceURL);
