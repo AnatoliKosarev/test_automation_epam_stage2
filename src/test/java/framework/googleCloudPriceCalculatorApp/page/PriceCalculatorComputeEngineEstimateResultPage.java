@@ -140,7 +140,7 @@ public class PriceCalculatorComputeEngineEstimateResultPage extends AbstractPage
         waiter.switchToFrame(frame2);
         scrollElementToView(emailAddressInputField);
         waiter.waitUntilElementIsDisplayed(emailAddressInputField, "'Email address' input field");
-        emailAddressInputField.sendKeys(Keys.CONTROL + "v");
+        emailAddressInputField.sendKeys(tempEmailAddress);
         takeAndSaveScreenshot("enterEmailAddressIntoEmailEstimateEntryForm");
         return this;
     }
