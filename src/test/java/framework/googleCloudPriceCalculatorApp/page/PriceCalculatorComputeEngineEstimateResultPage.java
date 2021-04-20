@@ -148,7 +148,8 @@ public class PriceCalculatorComputeEngineEstimateResultPage extends AbstractPage
     }
 
     public TempMailPage sendEstimateEmail() {
-        new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.not(ExpectedConditions.attributeToBe(sendEmailButton, "disabled", "disabled")));
+        waiter.waitUntilElementIsDisplayed(sendEmailButton, "'Send email' button");
+        takeAndSaveScreenshot();
         sendEmailButton.click();
         switchToSpecificTabContaining(tempEmailServiceURL);
         return new TempMailPage(driver, estimateResultPageHandler);
