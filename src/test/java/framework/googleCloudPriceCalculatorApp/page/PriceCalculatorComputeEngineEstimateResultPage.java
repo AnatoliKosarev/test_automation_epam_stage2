@@ -51,6 +51,9 @@ public class PriceCalculatorComputeEngineEstimateResultPage extends AbstractPage
     @FindBy(xpath = "//h2[@class = 'md-title']/b[@class = 'ng-binding']")
     private WebElement estimatePageTotalCostElement;
 
+    @FindBy(xpath = "//b[contains(text(), 'Estimated Component Cost:')]")
+    private WebElement estimateComponentCost;
+
     @FindBy(xpath = "//h2[contains(text(), 'Estimate')]")
     private WebElement estimateHeader;
 
@@ -119,7 +122,7 @@ public class PriceCalculatorComputeEngineEstimateResultPage extends AbstractPage
 
     public PriceCalculatorComputeEngineEstimateResultPage displayEmailEstimateEntryForm() {
         waiter.waitUntilElementIsDisplayed(emailEstimateButton, "'Email estimate' button");
-        scrollElementToView(estimatePageTotalCostElement);
+        scrollElementToView(estimateComponentCost);
         waiter.waitUntilElementIsClickable(emailEstimateButton, "'Email estimate' button");
         emailEstimateButton.click();
         return this;
