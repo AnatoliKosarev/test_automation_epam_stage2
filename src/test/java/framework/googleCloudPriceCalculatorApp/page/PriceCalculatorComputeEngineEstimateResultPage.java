@@ -119,7 +119,7 @@ public class PriceCalculatorComputeEngineEstimateResultPage extends AbstractPage
 
     public PriceCalculatorComputeEngineEstimateResultPage displayEmailEstimateEntryForm() {
         waiter.waitUntilElementIsDisplayed(emailEstimateButton, "'Email estimate' button");
-        scrollElementToView(emailEstimateButton);
+        scrollElementToView(estimatePageTotalCostElement);
         waiter.waitUntilElementIsClickable(emailEstimateButton, "'Email estimate' button");
         emailEstimateButton.click();
         return this;
@@ -138,7 +138,6 @@ public class PriceCalculatorComputeEngineEstimateResultPage extends AbstractPage
         waiter.switchToFrame(frame1);
         waiter.switchToFrame(frame2);
         scrollElementToView(emailAddressInputField);
-        takeAndSaveScreenshot();
         waiter.waitUntilElementIsDisplayed(emailAddressInputField, "'Email address' input field");
         emailAddressInputField.sendKeys(tempEmailAddress);
         return this;
@@ -147,7 +146,6 @@ public class PriceCalculatorComputeEngineEstimateResultPage extends AbstractPage
     public TempMailPage sendEstimateEmail() {
         new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.not(ExpectedConditions.attributeToBe(sendEmailButton, "disabled", "disabled")));
         sendEmailButton.click();
-        takeAndSaveScreenshot();
         switchToSpecificTabContaining(tempEmailServiceURL);
         return new TempMailPage(driver, estimateResultPageHandler);
     }
