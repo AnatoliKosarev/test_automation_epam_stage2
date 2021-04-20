@@ -36,6 +36,7 @@ public class TempMailPage extends AbstractPage {
         driver.navigate().refresh();
         waiter.waitUntilElementIsDisplayed(emailSizeLocator, "'Email container size' element");
         waiter.waitUntilElementIsClickable(copyEmailAddressButton, "'Copy email address' button");
+        takeAndSaveScreenshot();
         copyEmailAddressButton.click();
         PriceCalculatorComputeEngineEstimateResultPage.tempEmailAddress = getCopiedValue();
         logger.info(PriceCalculatorComputeEngineEstimateResultPage.tempEmailAddress + " temporary" +
@@ -62,7 +63,7 @@ public class TempMailPage extends AbstractPage {
         try {
             value =
                     (String) Toolkit.getDefaultToolkit().getSystemClipboard().getData(DataFlavor.stringFlavor);
-            driver.switchTo().window(returnPageHandler);
+            logger.info("COPIED VALUE IS " + value);
         } catch (HeadlessException | UnsupportedFlavorException | IOException e) {
           e.getLocalizedMessage();
         }
