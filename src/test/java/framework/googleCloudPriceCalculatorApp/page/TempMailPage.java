@@ -52,6 +52,9 @@ public class TempMailPage extends AbstractPage {
 
     public PriceCalculatorComputeEngineEstimateResultPage getEmailEstimateCost() {
         driver.navigate().refresh();
+        if (!mailMessageButton.isDisplayed()) {
+            driver.navigate().refresh();
+        }
         waiter.waitUntilElementIsDisplayed(mailMessageButton, "'Mail message' button");
         mailMessageButton.click();
         waiter.switchToFrame(frame);
