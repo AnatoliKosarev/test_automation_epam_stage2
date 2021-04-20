@@ -122,6 +122,7 @@ public class PriceCalculatorComputeEngineEstimateResultPage extends AbstractPage
         scrollElementToView(estimateComponentCost);
         waiter.waitUntilElementIsClickable(emailEstimateButton, "'Email estimate' button");
         emailEstimateButton.click();
+        takeAndSaveScreenshot("displayEmailEstimateEntryForm");
         return this;
     }
 
@@ -141,7 +142,6 @@ public class PriceCalculatorComputeEngineEstimateResultPage extends AbstractPage
         waiter.waitUntilElementIsDisplayed(emailAddressInputField, "'Email address' input field");
         emailAddressInputField.sendKeys(Keys.CONTROL + "v");
         takeAndSaveScreenshot("enterEmailAddressIntoEmailEstimateEntryForm");
-        logger.info("EMAIL ADDRESS INPUT " + emailAddressInputField.getText());
         return this;
     }
 

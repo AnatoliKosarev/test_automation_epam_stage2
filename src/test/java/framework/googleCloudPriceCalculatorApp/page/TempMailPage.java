@@ -63,7 +63,6 @@ public class TempMailPage extends AbstractPage {
         try {
             value =
                     (String) Toolkit.getDefaultToolkit().getSystemClipboard().getData(DataFlavor.stringFlavor);
-            logger.info("COPIED VALUE IS " + value);
         } catch (HeadlessException | UnsupportedFlavorException | IOException e) {
           e.getLocalizedMessage();
         }
