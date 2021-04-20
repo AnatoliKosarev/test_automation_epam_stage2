@@ -143,14 +143,14 @@ public class PriceCalculatorComputeEngineEstimateResultPage extends AbstractPage
         scrollElementToView(emailAddressInputField);
         waiter.waitUntilElementIsDisplayed(emailAddressInputField, "'Email address' input field");
         emailAddressInputField.sendKeys(tempEmailAddress);
-        takeAndSaveScreenshot();
+        takeAndSaveScreenshot("enterEmailAddressIntoEmailEstimateEntryForm");
         logger.info("EMAIL ADDRESS INPUT " + emailAddressInputField.getText());
         return this;
     }
 
     public TempMailPage sendEstimateEmail() {
         waiter.waitUntilElementIsDisplayed(sendEmailButton, "'Send email' button");
-        takeAndSaveScreenshot();
+        takeAndSaveScreenshot("sendEstimateEmail");
         sendEmailButton.click();
         switchToSpecificTabContaining(tempEmailServiceURL);
         return new TempMailPage(driver, estimateResultPageHandler);
@@ -165,7 +165,7 @@ public class PriceCalculatorComputeEngineEstimateResultPage extends AbstractPage
         String estimatePageTotalCost = estimatePageTotalCostElement.getText().replaceFirst("Total" +
                 " Estimated Cost: ", "").replaceFirst(" per 1 month", "");
         logger.info("Estimate page total cost: " + estimatePageTotalCost);
-        takeAndSaveScreenshot();
+        takeAndSaveScreenshot("validateEmailEstimateTotalCostIsTheSameAsOnEstimateResultPage");
         return estimatePageTotalCost.equals(emailEstimateTotalCost);
     }
 

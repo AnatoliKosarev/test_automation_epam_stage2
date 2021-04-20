@@ -44,9 +44,9 @@ public abstract class AbstractPage {
         driver.findElement(By.tagName("body")).sendKeys(Keys.HOME);
     }
 
-    public void takeAndSaveScreenshot() {
+    public void takeAndSaveScreenshot(String methodName) {
         logger.info("Start taking screenshot");
-        String screenshotName = getCurrentTimeAsString() + ".png";
+        String screenshotName = methodName + "_" + getCurrentTimeAsString() + ".png";
         File screenCapture = ((TakesScreenshot)DriverSingleton
                 .getDriver())
                 .getScreenshotAs(OutputType.FILE);

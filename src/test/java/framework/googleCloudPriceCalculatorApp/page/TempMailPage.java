@@ -36,7 +36,7 @@ public class TempMailPage extends AbstractPage {
         driver.navigate().refresh();
         waiter.waitUntilElementIsDisplayed(emailSizeLocator, "'Email container size' element");
         waiter.waitUntilElementIsClickable(copyEmailAddressButton, "'Copy email address' button");
-        takeAndSaveScreenshot();
+        takeAndSaveScreenshot("copyGeneratedTemporaryEmailAddress");
         copyEmailAddressButton.click();
         PriceCalculatorComputeEngineEstimateResultPage.tempEmailAddress = getCopiedValue();
         logger.info(PriceCalculatorComputeEngineEstimateResultPage.tempEmailAddress + " temporary" +
