@@ -1,9 +1,6 @@
 package framework.googleCloudPriceCalculatorApp.page;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -142,7 +139,7 @@ public class PriceCalculatorComputeEngineEstimateResultPage extends AbstractPage
         waiter.switchToFrame(frame2);
         scrollElementToView(emailAddressInputField);
         waiter.waitUntilElementIsDisplayed(emailAddressInputField, "'Email address' input field");
-        emailAddressInputField.sendKeys(tempEmailAddress);
+        emailAddressInputField.sendKeys(Keys.CONTROL + "v");
         takeAndSaveScreenshot("enterEmailAddressIntoEmailEstimateEntryForm");
         logger.info("EMAIL ADDRESS INPUT " + emailAddressInputField.getText());
         return this;
