@@ -12,7 +12,6 @@ import java.time.Duration;
 
 public class TempMailPage extends AbstractPage {
     private final String returnPageHandler;
-    private String emailSizeLocator = "//span[contains(text(), '40 MB')]";
 
     @FindBy(id = "address")
     private WebElement copyEmailAddressButton;
@@ -26,6 +25,9 @@ public class TempMailPage extends AbstractPage {
     @FindBy(xpath = "//html/..//iframe")
     private WebElement frame;
 
+    @FindBy(xpath = "//span[contains(text(), '40 MB')]")
+    private WebElement emailSize;
+
     public TempMailPage(WebDriver driver, String returnPageHandler) {
         super(driver);
         this.returnPageHandler = returnPageHandler;
@@ -34,7 +36,10 @@ public class TempMailPage extends AbstractPage {
     public PriceCalculatorComputeEngineEstimateResultPage copyGeneratedTemporaryEmailAddress() {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
         driver.navigate().refresh();
-        waiter.waitUntilElementIsDisplayed(emailSizeLocator, "'Email container size' element");
+        if (!emailSize.isDisplayed()) {
+            driver.navigate().refresh();
+        }
+        waiter.waitUntilElementIsDisplayed(emailSize, "'Email container size' element");
         waiter.waitUntilElementIsClickable(copyEmailAddressButton, "'Copy email address' button");
         takeAndSaveScreenshot("copyGeneratedTemporaryEmailAddress");
         copyEmailAddressButton.click();
