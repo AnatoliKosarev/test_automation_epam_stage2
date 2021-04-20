@@ -144,6 +144,7 @@ public class PriceCalculatorComputeEngineEstimateResultPage extends AbstractPage
         waiter.waitUntilElementIsDisplayed(emailAddressInputField, "'Email address' input field");
         emailAddressInputField.sendKeys(tempEmailAddress);
         takeAndSaveScreenshot();
+        logger.info("EMAIL ADDRESS INPUT " + emailAddressInputField.getText());
         return this;
     }
 
