@@ -60,7 +60,6 @@ public class PastebinHomePage extends AbstractPastebinPage {
 
     public PastebinHomePage openPage() {
         driver.get(PASTEBIN_HOMEPAGE_URL);
-        new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_5_SECONDS)).until(CustomConditions.jQueryAJAXsCompleted());
         if (waiter.cookieMessageIsDisplayed(acceptCookieButton)) {
             acceptCookieButton.click();
         }

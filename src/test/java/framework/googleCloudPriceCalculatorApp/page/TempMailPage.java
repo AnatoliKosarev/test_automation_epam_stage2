@@ -1,5 +1,6 @@
 package framework.googleCloudPriceCalculatorApp.page;
 
+import framework.common.screenshotUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -41,7 +42,7 @@ public class TempMailPage extends AbstractPage {
         }
         waiter.waitUntilElementIsDisplayed(emailSize, "'Email container size' element");
         waiter.waitUntilElementIsClickable(copyEmailAddressButton, "'Copy email address' button");
-        takeAndSaveScreenshot("copyGeneratedTemporaryEmailAddress");
+        screenshotUtils.takeAndSaveScreenshot("copyGeneratedTemporaryEmailAddress");
         copyEmailAddressButton.click();
         PriceCalculatorComputeEngineEstimateResultPage.tempEmailAddress = getCopiedValue();
         logger.info(PriceCalculatorComputeEngineEstimateResultPage.tempEmailAddress + " temporary" +

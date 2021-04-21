@@ -1,9 +1,9 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
 
 <suite name="Smoke" verbose="1" >
-    <test name="Hardcore">
+    <test name="HurtMePlentyTest">
         <classes>
-            <class name="framework.googleCloudPriceCalculatorApp.test.HardcoreTest"/>
+            <class name="framework.googleCloudPriceCalculatorApp.test.HurtMePlentyTest"/>
         </classes>
     </test>
 </suite>

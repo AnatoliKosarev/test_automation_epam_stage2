@@ -1,5 +1,6 @@
 package framework.googleCloudPriceCalculatorApp.page;
 
+import framework.common.screenshotUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -122,7 +123,7 @@ public class PriceCalculatorComputeEngineEstimateResultPage extends AbstractPage
         scrollElementToView(estimateComponentCost);
         waiter.waitUntilElementIsClickable(emailEstimateButton, "'Email estimate' button");
         emailEstimateButton.click();
-        takeAndSaveScreenshot("displayEmailEstimateEntryForm");
+        screenshotUtils.takeAndSaveScreenshot("displayEmailEstimateEntryForm");
         return this;
     }
 
@@ -141,13 +142,13 @@ public class PriceCalculatorComputeEngineEstimateResultPage extends AbstractPage
         scrollElementToView(emailAddressInputField);
         waiter.waitUntilElementIsDisplayed(emailAddressInputField, "'Email address' input field");
         emailAddressInputField.sendKeys(tempEmailAddress);
-        takeAndSaveScreenshot("enterEmailAddressIntoEmailEstimateEntryForm");
+        screenshotUtils.takeAndSaveScreenshot("enterEmailAddressIntoEmailEstimateEntryForm");
         return this;
     }
 
     public TempMailPage sendEstimateEmail() {
         waiter.waitUntilElementIsDisplayed(sendEmailButton, "'Send email' button");
-        takeAndSaveScreenshot("sendEstimateEmail");
+        screenshotUtils.takeAndSaveScreenshot("sendEstimateEmail");
         sendEmailButton.click();
         switchToSpecificTabContaining(tempEmailServiceURL);
         return new TempMailPage(driver, estimateResultPageHandler);
@@ -162,7 +163,7 @@ public class PriceCalculatorComputeEngineEstimateResultPage extends AbstractPage
         String estimatePageTotalCost = estimatePageTotalCostElement.getText().replaceFirst("Total" +
                 " Estimated Cost: ", "").replaceFirst(" per 1 month", "");
         logger.info("Estimate page total cost: " + estimatePageTotalCost);
-        takeAndSaveScreenshot("validateEmailEstimateTotalCostIsTheSameAsOnEstimateResultPage");
+        screenshotUtils.takeAndSaveScreenshot("validateEmailEstimateTotalCostIsTheSameAsOnEstimateResultPage");
         return estimatePageTotalCost.equals(emailEstimateTotalCost);
     }
 
